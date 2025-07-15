@@ -1,0 +1,328 @@
+[gd_scene load_steps=51 format=3 uid="uid://dfy85vubulnao"]
+
+[ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
+[ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
+[ext_resource type="PackedScene" uid="uid://dtc04w0t05ytu" path="res://assets/buildings/pieces/SM_Bld_House_Base_Wall_01 (21).fbx" id="3_i4vgu"]
+[ext_resource type="PackedScene" uid="uid://di33p02q34bll" path="res://assets/buildings/pieces/SM_Bld_House_Floor_Stone_01 (12).fbx" id="4_diw3x"]
+[ext_resource type="PackedScene" uid="uid://cuk4dn8qrm1yk" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_01 (13).fbx" id="5_q3unb"]
+[ext_resource type="PackedScene" uid="uid://crvyj1uyc4vc2" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Edge_End_01 (11).fbx" id="6_gjunt"]
+[ext_resource type="PackedScene" uid="uid://cn77sap0tt6d5" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_End_01 (20).fbx" id="7_gbbts"]
+[ext_resource type="PackedScene" uid="uid://bkcwcbmt41ckx" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_01 (9).fbx" id="8_yq3p1"]
+[ext_resource type="PackedScene" uid="uid://mlq51nywrnxn" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Peak_Cap_Edge_01 (8).fbx" id="9_3i17g"]
+[ext_resource type="PackedScene" uid="uid://yai2nf57a7yb" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Stick_01 (1).fbx" id="10_u4jmd"]
+[ext_resource type="PackedScene" uid="uid://hmoefs57nyby" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Stick_02 (2).fbx" id="11_0jbij"]
+[ext_resource type="PackedScene" uid="uid://4r6idkmudogv" path="res://assets/buildings/pieces/SM_Bld_House_Roof_Thatch_Stick_03 (5).fbx" id="12_xligg"]
+[ext_resource type="PackedScene" uid="uid://drx7v4wxv2bcv" path="res://assets/buildings/pieces/SM_Bld_House_Supports_01 (26).fbx" id="13_ssnxt"]
+[ext_resource type="PackedScene" uid="uid://dgwfrvn6vckpg" path="res://assets/buildings/pieces/SM_Bld_House_Supports_02 (13).fbx" id="14_nou5q"]
+[ext_resource type="PackedScene" uid="uid://bmwbojsarepdp" path="res://assets/buildings/pieces/SM_Bld_House_Wall_02 (5).fbx" id="15_taapi"]
+[ext_resource type="PackedScene" uid="uid://d12gwce2j1t6t" path="res://assets/buildings/pieces/SM_Bld_House_Wall_02 (8).fbx" id="16_5roai"]
+[ext_resource type="PackedScene" uid="uid://mlgccp16xcfj" path="res://assets/buildings/pieces/SM_Bld_House_Wall_Door_02.fbx" id="17_0l7v7"]
+[ext_resource type="PackedScene" uid="uid://dxi4wgaq0ttc4" path="res://assets/buildings/pieces/SM_Bld_House_Wall_Door_02_Door.fbx" id="18_3w4ku"]
+[ext_resource type="PackedScene" uid="uid://cwfvdynvqsp6x" path="res://assets/buildings/pieces/SM_Bld_House_Wall_Window_03 (8).fbx" id="19_e7i3n"]
+[ext_resource type="PackedScene" uid="uid://co2ukgvhbdns5" path="res://assets/buildings/pieces/SM_Bld_House_Wall_Window_07 (4).fbx" id="20_4ubi3"]
+[ext_resource type="PackedScene" uid="uid://bnxvsbpxvnq2k" path="res://assets/buildings/pieces/SM_Bld_House_WoodBeam_01 (26).fbx" id="21_7nka6"]
+[ext_resource type="PackedScene" uid="uid://deksjoboyntw2" path="res://assets/buildings/pieces/SM_Bld_House_WoodBeam_01.fbx" id="22_mkblb"]
+[ext_resource type="PackedScene" uid="uid://h73evbuibvg7" path="res://assets/buildings/pieces/SM_Bld_House_WoodBeam_03 (10).fbx" id="23_55e34"]
+[ext_resource type="PackedScene" uid="uid://b5ndtwv7qqxhb" path="res://assets/buildings/pieces/SM_Prop_Barrel_Dispenser_Small_01.fbx" id="24_6qbef"]
+[ext_resource type="PackedScene" uid="uid://8un8ufh8387t" path="res://assets/buildings/pieces/SM_Prop_Bar_02 (1).fbx" id="25_e3s4h"]
+[ext_resource type="PackedScene" uid="uid://f81ryjhkgv1e" path="res://assets/buildings/pieces/SM_Prop_Bar_Gate_01_Door.fbx" id="26_17grw"]
+[ext_resource type="PackedScene" uid="uid://djpxb7swlh1fe" path="res://assets/buildings/pieces/SM_Prop_Cabinet_Stackable_01 (1).fbx" id="27_a3qre"]
+[ext_resource type="PackedScene" uid="uid://b8dw3p5s26v6s" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Debris_01.fbx" id="28_43vwf"]
+[ext_resource type="PackedScene" uid="uid://xmu6e22h7gb" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Debris_02.fbx" id="29_44522"]
+[ext_resource type="PackedScene" uid="uid://b3e6wykvf881h" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_01.fbx" id="30_bci2f"]
+[ext_resource type="PackedScene" uid="uid://db04irbsj4wus" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_01_Burnt.fbx" id="31_mspmn"]
+[ext_resource type="PackedScene" uid="uid://b6gy4d8to3ltm" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_02.fbx" id="32_ifuuv"]
+[ext_resource type="PackedScene" uid="uid://cxc44psanwaq0" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_02_Burnt.fbx" id="33_o0div"]
+[ext_resource type="PackedScene" uid="uid://dw2htpqiix737" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_03.fbx" id="34_vx8a7"]
+[ext_resource type="PackedScene" uid="uid://dhfeamdmg22ae" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_03_Burnt.fbx" id="35_ampxm"]
+[ext_resource type="PackedScene" uid="uid://cq0vtk0grcnr2" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_04.fbx" id="36_y8qhm"]
+[ext_resource type="PackedScene" uid="uid://44ojhqyd13km" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_04_Burnt.fbx" id="37_8y7wb"]
+[ext_resource type="PackedScene" uid="uid://b3cyxyaln1hlu" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_05.fbx" id="38_38n0t"]
+[ext_resource type="PackedScene" uid="uid://dxolamo67usco" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_05_Burnt.fbx" id="39_g6p70"]
+[ext_resource type="PackedScene" uid="uid://bxqauhjpvx0a8" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_06.fbx" id="40_cjn1n"]
+[ext_resource type="PackedScene" uid="uid://c7j76cxg526j" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_07.fbx" id="41_p6bvu"]
+[ext_resource type="PackedScene" uid="uid://dqbu57li0wo2d" path="res://assets/buildings/pieces/SM_Prop_Destroyed_House_Piece_07_Burnt.fbx" id="42_k72p6"]
+[ext_resource type="PackedScene" uid="uid://bimd4sir6akty" path="res://assets/buildings/pieces/SM_Prop_Shelf_02.fbx" id="43_xu4mj"]
+[ext_resource type="PackedScene" uid="uid://codaeyk3bbrvm" path="res://assets/buildings/pieces/SM_Prop_Stool_04 (11).fbx" id="44_6bx6y"]
+[ext_resource type="PackedScene" uid="uid://d05p1as5udrc2" path="res://assets/buildings/pieces/SM_Prop_TableCloth_03.fbx" id="45_sp7xo"]
+[ext_resource type="PackedScene" uid="uid://ctu3scouln1ti" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_03 (1).fbx" id="46_n0kau"]
+[ext_resource type="PackedScene" uid="uid://c1flyw1iu4nm2" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_06 (1).fbx" id="47_5pmis"]
+[ext_resource type="PackedScene" uid="uid://dwucp7d4c1pvs" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_10 (3).fbx" id="48_chm48"]
+[ext_resource type="PackedScene" uid="uid://d1nais5cn5bak" path="res://objects/blackened table.tscn" id="49_i4vgu"]
+[ext_resource type="PackedScene" uid="uid://bubjvk5v78ee3" path="res://objects/blackened stool.tscn" id="50_diw3x"]
+
+[node name="Tavern" type="Node3D"]
+
+[node name="Preset_Tavern_01_binary" parent="." instance=ExtResource("1_ty6t4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47512, 0, -4.62533)
+visible = false
+
+[node name="SM_Bld_House_Base_Corner_01 (13)" parent="." instance=ExtResource("2_f6k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9014, 0, -18.3744)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)" parent="." instance=ExtResource("3_i4vgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5108, 0, -20.546)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)" parent="." instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3018, 0, -18.3235)
+
+[node name="SM_Bld_House_Roof_Thatch_01 (13)" parent="." instance=ExtResource("5_q3unb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1699, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_Edge_End_01 (11)" parent="." instance=ExtResource("6_gjunt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4949, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_End_01 (20)" parent="." instance=ExtResource("7_gbbts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7106, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_01 (9)" parent="." instance=ExtResource("8_yq3p1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4748, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Edge_01 (8)" parent="." instance=ExtResource("9_3i17g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3455, 0, -3.96267)
+
+[node name="SM_Bld_House_Roof_Thatch_Stick_01 (1)" parent="." instance=ExtResource("10_u4jmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_Stick_02 (2)" parent="." instance=ExtResource("11_0jbij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
+
+[node name="SM_Bld_House_Roof_Thatch_Stick_03 (5)" parent="." instance=ExtResource("12_xligg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
+
+[node name="SM_Bld_House_Supports_01 (26)" parent="." instance=ExtResource("13_ssnxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9822, 0, 5.91909)
+
+[node name="SM_Bld_House_Supports_02 (13)" parent="." instance=ExtResource("14_nou5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3204, 0, 0)
+
+[node name="SM_Bld_House_Wall_02 (5)" parent="." instance=ExtResource("15_taapi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8838, 0, -22.2146)
+
+[node name="SM_Bld_House_Wall_02 (8)" parent="." instance=ExtResource("16_5roai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.452)
+
+[node name="SM_Bld_House_Wall_Door_02" parent="." instance=ExtResource("17_0l7v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.5526)
+
+[node name="SM_Bld_House_Wall_Door_02_Door" parent="." instance=ExtResource("18_3w4ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.3483)
+
+[node name="SM_Bld_House_Wall_Window_03 (8)" parent="." instance=ExtResource("19_e7i3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.6353)
+
+[node name="SM_Bld_House_Wall_Window_07 (4)" parent="." instance=ExtResource("20_4ubi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.3926)
+
+[node name="SM_Bld_House_WoodBeam_01 (26)" parent="." instance=ExtResource("21_7nka6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5119, 0, -19.9862)
+
+[node name="SM_Bld_House_WoodBeam_01" parent="." instance=ExtResource("22_mkblb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9567, 0, -19.9882)
+
+[node name="SM_Bld_House_WoodBeam_03 (10)" parent="." instance=ExtResource("23_55e34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.976, 0, 0)
+
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="." instance=ExtResource("24_6qbef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7193, 0, 11.9593)
+
+[node name="SM_Prop_Bar_02 (1)" parent="." instance=ExtResource("25_e3s4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7328, 0, 13.1218)
+
+[node name="SM_Prop_Bar_Gate_01_Door" parent="." instance=ExtResource("26_17grw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56809, 0, 11.1679)
+
+[node name="SM_Prop_Cabinet_Stackable_01 (1)" parent="." instance=ExtResource("27_a3qre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1833, 0, 11.4379)
+
+[node name="SM_Prop_Destroyed_House_Debris_01" parent="." instance=ExtResource("28_43vwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4714, 0, 7.01007)
+
+[node name="SM_Prop_Destroyed_House_Debris_02" parent="." instance=ExtResource("29_44522")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2643, 0, -3.26874)
+
+[node name="SM_Prop_Destroyed_House_Piece_01" parent="." instance=ExtResource("30_bci2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2648, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_01_Burnt" parent="." instance=ExtResource("31_mspmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6277, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_02" parent="." instance=ExtResource("32_ifuuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.802, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_02_Burnt" parent="." instance=ExtResource("33_o0div")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4453, 0, -6.43919)
+
+[node name="SM_Prop_Destroyed_House_Piece_03" parent="." instance=ExtResource("34_vx8a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9619, 0, 7.02701)
+
+[node name="SM_Prop_Destroyed_House_Piece_03_Burnt" parent="." instance=ExtResource("35_ampxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7356, 0, -6.32563)
+
+[node name="SM_Prop_Destroyed_House_Piece_04" parent="." instance=ExtResource("36_y8qhm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3434, 0, -16.2007)
+
+[node name="SM_Prop_Destroyed_House_Piece_04_Burnt" parent="." instance=ExtResource("37_8y7wb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0498, 0, 8.85895)
+
+[node name="SM_Prop_Destroyed_House_Piece_05" parent="." instance=ExtResource("38_38n0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0448, 0, 6.15768)
+
+[node name="SM_Prop_Destroyed_House_Piece_05_Burnt" parent="." instance=ExtResource("39_g6p70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7674, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_06" parent="." instance=ExtResource("40_cjn1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4397, 0, -16.1842)
+
+[node name="SM_Prop_Destroyed_House_Piece_07" parent="." instance=ExtResource("41_p6bvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8731, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_07_Burnt" parent="." instance=ExtResource("42_k72p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4958, 0, 0)
+
+[node name="SM_Prop_Shelf_02" parent="." instance=ExtResource("43_xu4mj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1507, 0, 8.43717)
+
+[node name="SM_Prop_Stool_04 (11)" parent="." instance=ExtResource("44_6bx6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1618, 0, 7.99279)
+
+[node name="SM_Prop_TableCloth_03" parent="." instance=ExtResource("45_sp7xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42678, 0, 10.2777)
+
+[node name="SM_Prop_Table_Wood_03 (1)" parent="." instance=ExtResource("46_n0kau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62771, 0, 9.40422)
+
+[node name="SM_Prop_Table_Wood_06 (1)" parent="." instance=ExtResource("47_5pmis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9047, 0, 10.6888)
+
+[node name="SM_Prop_Table_Wood_10 (3)" parent="." instance=ExtResource("48_chm48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21947, 0, 11.1134)
+
+[node name="Tavern_00" type="Node3D" parent="."]
+
+[node name="SM_Prop_Destroyed_House_Debris_02" parent="Tavern_00" instance=ExtResource("29_44522")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00554, -0.0721171, -3.33475)
+
+[node name="Floor" type="Node3D" parent="Tavern_00"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162938, 0.604088, 0)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92408, -0.657851, -0.0596504)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)2" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44388, -0.657851, -0.0596504)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)3" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04154, -0.657851, -0.0596504)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)4" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52174, -0.657851, -0.0596504)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)5" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92408, -0.657851, -2.5286)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)6" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44388, -0.657851, -2.5286)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)7" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04154, -0.657851, -2.5286)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)8" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52174, -0.657851, -2.5286)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)9" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92408, -0.657851, -5.0259)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)10" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44388, -0.657851, -5.0259)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)11" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04154, -0.657851, -5.0259)
+
+[node name="SM_Bld_House_Floor_Stone_01 (12)12" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52174, -0.657851, -5.0259)
+
+[node name="Foundation" type="Node3D" parent="Tavern_00"]
+
+[node name="SM_Bld_House_Base_Wall_01 (21)" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7479, -1.25316, -2.56602)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)2" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7479, -1.25316, -5.02725)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76034, -1.25007, -2.52753)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)6" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.769812, -1.25316, 2.40474)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)7" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.23104, -1.25316, 2.47049)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)4" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.73132, -1.25007, 2.48292)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)8" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.84645, -1.25316, 2.36913)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)5" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.88495, -1.25007, 2.48292)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)6" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 4.3578, -1.25007, 2.38026)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)3" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.712394, -1.26542, -5.13167)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)4" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.74884, -1.26542, -5.13167)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)2" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.750886, -1.26233, -5.14411)
+
+[node name="SM_Bld_House_Base_Wall_01 (21)5" parent="Tavern_00/Foundation" instance=ExtResource("3_i4vgu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.35461, -1.26542, -5.13167)
+
+[node name="SM_Bld_House_Base_Corner_01 (13)3" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.85489, -1.26233, -5.14411)
+
+[node name="Walls" type="Node3D" parent="Tavern_00"]
+
+[node name="SM_Prop_Destroyed_House_Piece_07_Burnt" parent="Tavern_00/Walls" instance=ExtResource("42_k72p6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.81378, 0.00043273, -5.16101)
+
+[node name="SM_Prop_Destroyed_House_Piece_01_Burnt" parent="Tavern_00/Walls" instance=ExtResource("31_mspmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76156, 0, 0)
+
+[node name="SM_Prop_Destroyed_House_Piece_03_Burnt" parent="Tavern_00/Walls" instance=ExtResource("35_ampxm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.26938, 0, -5.15502)
+
+[node name="SM_Prop_Destroyed_House_Piece_05_Burnt" parent="Tavern_00/Walls" instance=ExtResource("39_g6p70")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.31483, 0, 2.36906)
+
+[node name="SM_Prop_Destroyed_House_Piece_02_Burnt" parent="Tavern_00/Walls" instance=ExtResource("33_o0div")]
+transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 4.30375, 0, -2.64364)
+
+[node name="Door" type="Node3D" parent="Tavern_00/Walls"]
+visible = false
+
+[node name="SM_Bld_House_WoodBeam_01 (26)" parent="Tavern_00/Walls/Door" instance=ExtResource("21_7nka6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.742523, 0, 2.49775)
+
+[node name="SM_Bld_House_WoodBeam_01 (26)2" parent="Tavern_00/Walls/Door" instance=ExtResource("21_7nka6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8718, 0, 2.49775)
+
+[node name="SM_Bld_House_WoodBeam_01 (26)3" parent="Tavern_00/Walls/Door" instance=ExtResource("21_7nka6")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.8718, 2.34808, 2.49775)
+
+[node name="SM_Bld_House_Wall_Door_02" parent="Tavern_00/Walls/Door" instance=ExtResource("17_0l7v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.643145, -0.0137427, 2.49732)
+
+[node name="SM_Prop_Table_Wood_06 (1)" parent="Tavern_00" instance=ExtResource("49_i4vgu")]
+transform = Transform3D(0.785279, -0.122482, -0.606906, -0.493193, 0.468845, -0.732765, 0.374295, 0.874747, 0.307767, -4.19474, 0.277421, -0.979966)
+
+[node name="SM_Prop_Stool_04 (11)2" parent="Tavern_00" instance=ExtResource("50_diw3x")]
+transform = Transform3D(0.146155, -0.655309, -0.741086, 0.988825, 0.0745278, 0.129112, -0.0293766, -0.751675, 0.658879, 1.31906, 0.16972, -3.02612)
+
+[node name="SM_Prop_Stool_04 (11)3" parent="Tavern_00" instance=ExtResource("50_diw3x")]
+transform = Transform3D(-0.336926, 0.736899, -0.586055, 0.940631, 0.23623, -0.243739, -0.0411677, -0.633383, -0.772742, 0.753902, 0.199271, -2.9086)

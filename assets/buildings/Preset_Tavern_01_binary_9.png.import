@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://1ufoprqrasfu"
+path="res://.godot/imported/Preset_Tavern_01_binary_9.png-9144c04fc6f3ce12dae97603d24526bb.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "490b50f240a6c1f265f21ae95d56dc40"
+}
+
+[deps]
+
+source_file="res://assets/buildings/Preset_Tavern_01_binary_9.png"
+dest_files=["res://.godot/imported/Preset_Tavern_01_binary_9.png-9144c04fc6f3ce12dae97603d24526bb.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

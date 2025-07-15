@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bubjvk5v78ee3"]
+
+[ext_resource type="PackedScene" uid="uid://codaeyk3bbrvm" path="res://assets/buildings/pieces/SM_Prop_Stool_04 (11).fbx" id="1_b6e18"]
+[ext_resource type="Material" uid="uid://6731bcmeu8d2" path="res://assets/textures/blackened wood.tres" id="2_82ion"]
+
+[node name="SM_Prop_Stool_04 (11)" instance=ExtResource("1_b6e18")]
+
+[node name="SM_Prop_Stool_04__11_" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_82ion")

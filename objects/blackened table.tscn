@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1nais5cn5bak"]
+
+[ext_resource type="PackedScene" uid="uid://c1flyw1iu4nm2" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_06 (1).fbx" id="1_8ufjd"]
+[ext_resource type="Material" uid="uid://6731bcmeu8d2" path="res://assets/textures/blackened wood.tres" id="2_q6eud"]
+
+[node name="SM_Prop_Table_Wood_06 (1)" instance=ExtResource("1_8ufjd")]
+
+[node name="SM_Prop_Table_Wood_06__1_" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_q6eud")
