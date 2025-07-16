@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://lwhnv2soqdbo"]
+
+[ext_resource type="Script" uid="uid://dwfydc2lhcc6m" path="res://ui/interaction.gd" id="1_1mkvy"]
+[ext_resource type="Texture2D" uid="uid://kq3obmcnw3ro" path="res://assets/textures/White outline.png" id="1_jfob0"]
+
+[node name="Interaction UI" type="HBoxContainer" node_paths=PackedStringArray("progress_bar", "key_label", "action_label")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -20.5
+offset_right = 74.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+script = ExtResource("1_1mkvy")
+progress_bar = NodePath("Panel/TextureProgressBar")
+key_label = NodePath("Panel/Key label")
+action_label = NodePath("Action label")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 70.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("1_jfob0")
+
+[node name="Key label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Action label" type="Label" parent="."]
+layout_mode = 2
+text = "to clear this table"

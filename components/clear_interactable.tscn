@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct502afw45a7x"]
+
+[ext_resource type="PackedScene" uid="uid://bjk27uw3cvbja" path="res://components/interactable.tscn" id="1_mmb40"]
+[ext_resource type="Script" uid="uid://b83p83jdcreuk" path="res://components/clear_interactable.gd" id="2_2wipv"]
+
+[node name="ClearInteractable" node_paths=PackedStringArray("cleared_nodes") instance=ExtResource("1_mmb40")]
+script = ExtResource("2_2wipv")
+cleared_nodes = []
+message = ""
+duration = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=65 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -50,6 +50,48 @@
 [ext_resource type="PackedScene" uid="uid://dwucp7d4c1pvs" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_10 (3).fbx" id="48_chm48"]
 [ext_resource type="PackedScene" uid="uid://d1nais5cn5bak" path="res://objects/blackened table.tscn" id="49_i4vgu"]
 [ext_resource type="PackedScene" uid="uid://bubjvk5v78ee3" path="res://objects/blackened stool.tscn" id="50_diw3x"]
+[ext_resource type="Script" uid="uid://b53ffhk1l80mu" path="res://characters/player/player.gd" id="51_diw3x"]
+[ext_resource type="PackedScene" uid="uid://ct502afw45a7x" path="res://components/clear_interactable.tscn" id="51_q3unb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4vgu"]
+size = Vector3(10.5578, 1.42377, 8.11181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_diw3x"]
+size = Vector3(4.49133, 3.41785, 0.473511)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3unb"]
+size = Vector3(10.4156, 3.41785, 0.473511)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjunt"]
+size = Vector3(5.23469, 3.41785, 3.00433)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbbts"]
+size = Vector3(2.72333, 3.41785, 0.473511)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yq3p1"]
+size = Vector3(7.82833, 3.41785, 0.473511)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3i17g"]
+size = Vector3(4.16528, 3.41785, 0.473511)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u4jmd"]
+height = 2.68896
+radius = 1.00293
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0jbij"]
+height = 4.43347
+radius = 2.40479
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3unb"]
+radius = 3.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4vgu"]
+radius = 0.35
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_diw3x"]
+radius = 0.35
+height = 1.5
 
 [node name="Tavern" type="Node3D"]
 
@@ -200,11 +242,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21947, 0, 11.1134)
 
 [node name="Tavern_00" type="Node3D" parent="."]
 
-[node name="SM_Prop_Destroyed_House_Debris_02" parent="Tavern_00" instance=ExtResource("29_44522")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00554, -0.0721171, -3.33475)
-
-[node name="Floor" type="Node3D" parent="Tavern_00"]
+[node name="Floor" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162938, 0.604088, 0)
+collision_mask = 2
+gravity_scale = 0.0
 
 [node name="SM_Bld_House_Floor_Stone_01 (12)" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92408, -0.657851, -0.0596504)
@@ -241,6 +282,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04154, -0.657851, -5.0259)
 
 [node name="SM_Bld_House_Floor_Stone_01 (12)12" parent="Tavern_00/Floor" instance=ExtResource("4_diw3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52174, -0.657851, -5.0259)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.519737, -1.25793, -1.33825)
+shape = SubResource("BoxShape3D_i4vgu")
 
 [node name="Foundation" type="Node3D" parent="Tavern_00"]
 
@@ -286,7 +331,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.3546
 [node name="SM_Bld_House_Base_Corner_01 (13)3" parent="Tavern_00/Foundation" instance=ExtResource("2_f6k6c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.85489, -1.26233, -5.14411)
 
-[node name="Walls" type="Node3D" parent="Tavern_00"]
+[node name="Walls" type="RigidBody3D" parent="Tavern_00"]
+collision_mask = 2
+gravity_scale = 0.0
 
 [node name="SM_Prop_Destroyed_House_Piece_07_Burnt" parent="Tavern_00/Walls" instance=ExtResource("42_k72p6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.81378, 0.00043273, -5.16101)
@@ -318,11 +365,89 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.8718
 [node name="SM_Bld_House_Wall_Door_02" parent="Tavern_00/Walls/Door" instance=ExtResource("17_0l7v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.643145, -0.0137427, 2.49732)
 
-[node name="SM_Prop_Table_Wood_06 (1)" parent="Tavern_00" instance=ExtResource("49_i4vgu")]
-transform = Transform3D(0.785279, -0.122482, -0.606906, -0.493193, 0.468845, -0.732765, 0.374295, 0.874747, 0.307767, -4.19474, 0.277421, -0.979966)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1292, 1.40451, 2.53344)
+shape = SubResource("BoxShape3D_diw3x")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748859, 1.40451, -5.21801)
+shape = SubResource("BoxShape3D_q3unb")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84158, 1.40451, -4.03433)
+shape = SubResource("BoxShape3D_gjunt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5.72009, 1.40451, 1.30576)
+shape = SubResource("BoxShape3D_gbbts")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5.72009, 1.40451, 1.30576)
+shape = SubResource("BoxShape3D_gbbts")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 4.30467, 1.40451, -1.46859)
+shape = SubResource("BoxShape3D_yq3p1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Tavern_00/Walls"]
+transform = Transform3D(-0.820152, 0, 0.572146, 0, 1, 0, -0.572146, 0, -0.820152, -3.97802, 1.40451, 1.34975)
+shape = SubResource("BoxShape3D_3i17g")
 
 [node name="SM_Prop_Stool_04 (11)2" parent="Tavern_00" instance=ExtResource("50_diw3x")]
 transform = Transform3D(0.146155, -0.655309, -0.741086, 0.988825, 0.0745278, 0.129112, -0.0293766, -0.751675, 0.658879, 1.31906, 0.16972, -3.02612)
 
 [node name="SM_Prop_Stool_04 (11)3" parent="Tavern_00" instance=ExtResource("50_diw3x")]
 transform = Transform3D(-0.336926, 0.736899, -0.586055, 0.940631, 0.23623, -0.243739, -0.0411677, -0.633383, -0.772742, 0.753902, 0.199271, -2.9086)
+
+[node name="Clearable table" type="RigidBody3D" parent="Tavern_00"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19474, 0.277421, -0.979966)
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="SM_Prop_Table_Wood_06 (1)" parent="Tavern_00/Clearable table" instance=ExtResource("49_i4vgu")]
+transform = Transform3D(0.785279, -0.122482, -0.606906, -0.493193, 0.468845, -0.732765, 0.374295, 0.874747, 0.307767, 0, 0, 0)
+
+[node name="ClearInteractable" parent="Tavern_00/Clearable table" node_paths=PackedStringArray("cleared_nodes") instance=ExtResource("51_q3unb")]
+cleared_nodes = [NodePath("..")]
+message = "to clear rubble."
+duration = 2.0
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Tavern_00/Clearable table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114089, -0.125522, 0.27523)
+shape = SubResource("CylinderShape3D_u4jmd")
+
+[node name="Clearable center rubble" type="RigidBody3D" parent="Tavern_00"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63558, 1.01353, -3.44317)
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="SM_Prop_Destroyed_House_Debris_02" parent="Tavern_00/Clearable center rubble" instance=ExtResource("29_44522")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.369957, -1.08565, 0.108424)
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Tavern_00/Clearable center rubble"]
+shape = SubResource("CylinderShape3D_0jbij")
+
+[node name="ClearInteractable" parent="Tavern_00/Clearable center rubble" node_paths=PackedStringArray("cleared_nodes") instance=ExtResource("51_q3unb")]
+cleared_nodes = [NodePath("..")]
+message = "to clear rubble."
+duration = 4.0
+
+[node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/ClearInteractable" index="0"]
+shape = SubResource("SphereShape3D_q3unb")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99419, 0.832556, 1.86209)
+collision_layer = 2
+collision_mask = 255
+script = ExtResource("51_diw3x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_i4vgu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_diw3x")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661841, 0.223828)
+
+[editable path="Tavern_00/Clearable center rubble/ClearInteractable"]
