@@ -1,0 +1,92 @@
+[gd_resource type="Resource" script_class="Conversation" load_steps=16 format=3 uid="uid://dd1frgvvqvrqo"]
+
+[ext_resource type="Script" uid="uid://cp2lpit2hf78" path="res://data/conversation.gd" id="1_jsvfc"]
+[ext_resource type="Script" uid="uid://coht2xacgh1jm" path="res://data/sentence.gd" id="2_dl1w4"]
+[ext_resource type="Script" uid="uid://c2420f6s7r04f" path="res://data/speech.gd" id="2_jsvfc"]
+
+[sub_resource type="Resource" id="Resource_dl1w4"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = true
+words = "Do my old eyes fail me, or do I see someone moving in the rubble...?"
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_bwdwm"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Ah... so you're not a ghost! My word. To think someone would come here of their own volition."
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_fva3m"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Pardon me, I realize I'm being rude. My name is Gorman. After [url=happened]what happened[/url], I think [url=left]I'm the only one left.[/url]"
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_bdysx"]
+script = ExtResource("2_jsvfc")
+sentences = Array[ExtResource("2_dl1w4")]([SubResource("Resource_dl1w4"), SubResource("Resource_bwdwm"), SubResource("Resource_fva3m")])
+metadata/_custom_type_script = "uid://c2420f6s7r04f"
+
+[sub_resource type="Resource" id="Resource_x3m4s"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Ah yes... not surprising you wouldn't know, I suppose."
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_vjine"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "It's been five years now. I suppose news of it hardly reached the homeland, either."
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_r15sq"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Pardon me, but my throat's a bit parched; did you manage to find any surviving barrels of ale...?"
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_oxtuy"]
+script = ExtResource("2_jsvfc")
+sentences = Array[ExtResource("2_dl1w4")]([SubResource("Resource_x3m4s"), SubResource("Resource_vjine"), SubResource("Resource_r15sq")])
+metadata/_custom_type_script = "uid://c2420f6s7r04f"
+
+[sub_resource type="Resource" id="Resource_ndxcm"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Oh, yes. What seems like a long time ago, this was a bustling frontier town. Not just a pile of burnt logs."
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_cjmer"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "I met many wonderful people, here at the edge of the world. Good people. Like your father..."
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_txp7j"]
+script = ExtResource("2_dl1w4")
+speaker = "old man"
+focus_speaker = false
+words = "Pardon me, but my throat's a bit parched; did you manage to find any surviving barrels of ale...?"
+metadata/_custom_type_script = "uid://coht2xacgh1jm"
+
+[sub_resource type="Resource" id="Resource_ad76l"]
+script = ExtResource("2_jsvfc")
+sentences = Array[ExtResource("2_dl1w4")]([SubResource("Resource_ndxcm"), SubResource("Resource_cjmer"), SubResource("Resource_txp7j")])
+metadata/_custom_type_script = "uid://c2420f6s7r04f"
+
+[resource]
+script = ExtResource("1_jsvfc")
+speeches = Dictionary[String, ExtResource("2_jsvfc")]({
+"happened": SubResource("Resource_oxtuy"),
+"left": SubResource("Resource_ad76l"),
+"start": SubResource("Resource_bdysx")
+})
+metadata/_custom_type_script = "uid://cp2lpit2hf78"
