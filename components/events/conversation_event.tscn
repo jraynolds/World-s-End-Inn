@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://batvf62relpnb"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_r36dp"]
+[ext_resource type="Script" uid="uid://s3pe6jv12j7x" path="res://components/events/conversation_event.gd" id="2_l68tg"]
+
+[node name="ConversationEvent" instance=ExtResource("1_r36dp")]
+script = ExtResource("2_l68tg")
+conversation = null

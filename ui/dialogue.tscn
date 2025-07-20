@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://l0h1eq06sfuk" path="res://ui/dialogue.gd" id="1_fm7tp"]
 
-[node name="Dialogue" type="Control"]
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("advance_button", "name_label", "speech_label")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fm7tp")
+advance_button = NodePath("Button")
+name_label = NodePath("Container/Panel/Label")
+speech_label = NodePath("Container/Panel2/Label")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -52,7 +56,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Container/Panel2"]
+[node name="Label" type="RichTextLabel" parent="Container/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,6 +67,7 @@ offset_right = -56.0
 offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
+bbcode_enabled = true
 text = "Sample text. Describing what the speaker is saying..."
 
 [node name="Button" type="Button" parent="Container/Panel2"]

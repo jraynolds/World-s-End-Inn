@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1fjr0v37s5rc"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_i7m2g"]
+[ext_resource type="Script" uid="uid://cqcc45fvtggyd" path="res://components/events/visibility_event.gd" id="2_l21dr"]
+
+[node name="VisibilityEvent" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("1_i7m2g")]
+script = ExtResource("2_l21dr")
+nodes_to_change_visibility = {}

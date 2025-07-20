@@ -4,6 +4,15 @@ class_name Interactable
 
 @export var message : String ## The message that pops up on the screen when the player comes near.
 @export var duration : float ## The time in seconds it takes to interact with this Interactable.
+## The Event children of this Interactable, which will be activated when we interact with this.
+var events : Array[Event] :
+	get :
+		var out: Array[Event] = []
+		for child in get_children():
+			var event = child as Event
+			if event:
+				out.append(event)
+		return out
 
 ## Listens to entry signal. If the player enters, sends to Interaction.
 func _on_body_entered(body: Node) -> void:
@@ -19,4 +28,6 @@ func _on_body_exited(body: Node) -> void:
 
 ## Called when this Interactable is fully interacted with.
 func interacted():
-	pass
+	for event in events:
+		print(event.name)
+		event.take_effect()

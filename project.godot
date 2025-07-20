@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Interaction="*res://ui/interaction.tscn"
+Dialogue="*res://ui/dialogue.tscn"
 
 [input]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq83r33k7mvf0"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_awolp"]
+[ext_resource type="Script" uid="uid://bxk6xlk2d5bm1" path="res://components/events/clear_event.gd" id="2_xk0vv"]
+
+[node name="ClearEvent" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("1_awolp")]
+script = ExtResource("2_xk0vv")
+nodes_to_clear = []

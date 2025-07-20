@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcv3g7cpqfuen"]
+
+[ext_resource type="Script" uid="uid://ccldtkqggppjv" path="res://components/events/event.gd" id="1_m5q0g"]
+
+[node name="Event" type="Node3D"]
+script = ExtResource("1_m5q0g")
