@@ -523,13 +523,11 @@ script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("../..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") groups=["characters", "player"]]
+[node name="Player" type="CharacterBody3D" parent="." groups=["characters", "player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99419, 0.832556, 1.86209)
 collision_layer = 2
 collision_mask = 255
 script = ExtResource("51_diw3x")
-look_at_speed = 2.0
-camera = NodePath("Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_i4vgu")

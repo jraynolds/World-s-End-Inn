@@ -58,7 +58,7 @@ metadata/_custom_type_script = "uid://c2420f6s7r04f"
 
 [sub_resource type="Resource" id="Resource_dl1w4"]
 script = ExtResource("2_dl1w4")
-speaker = "old man"
+speaker = "Old Man"
 focus_speaker = true
 words = "Do my old eyes fail me, or do I see someone moving in the rubble...?"
 metadata/_custom_type_script = "uid://coht2xacgh1jm"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l0h1eq06sfuk" path="res://ui/dialogue.gd" id="1_fm7tp"]
 
-[node name="Dialogue" type="Control" node_paths=PackedStringArray("advance_button", "name_label", "speech_label")]
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("advance_button", "small_advance_button", "name_label", "speech_label")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fm7tp")
 advance_button = NodePath("Button")
+small_advance_button = NodePath("Container/Panel2/Button")
 name_label = NodePath("Container/Panel/Label")
 speech_label = NodePath("Container/Panel2/Label")
 
@@ -86,3 +87,4 @@ grow_vertical = 0
 text = ">>"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/Panel2/Button" to="." method="_on_button_pressed"]

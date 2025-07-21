@@ -1,75 +1,29 @@
-#extends CharacterBody3D
+extends CharacterBody3D
 class_name Player
 ### Class for the Player entity.
-#
-#@export var acceleration : float ## How fast we accelerate upon input.
-#@export var velocity_max : float ## The maximum velocity we can reach.
-#@export var mouse_sensitivity : float ## The sensitivity of our mouselook.
-#@export var jump_velocity : float ## The speed we jump with.
-#
-#func _input(event: InputEvent) -> void:
-	#velocity = Vector3.ZERO
-	#if event.is_action("forward"):
-		#velocity.z = maxf(velocity.z - acceleration, -velocity_max)
-	#elif event.is_action("back"):
-		#velocity.z = minf(velocity.z + acceleration, velocity_max)
-	#if event.is_action("left"):
-		#velocity.x = minf(velocity.x - acceleration, -velocity_max)
-	#elif event.is_action("right"):
-		#velocity.x = maxf(velocity.x + acceleration, velocity_max)
-#
-#func _unhandled_input(event):
-	#if event is InputEventMouseMotion:
-		#yaw -= event.relative.x * mouse_sensitivity
-		#pitch -= event.relative.y * mouse_sensitivity
-		#pitch = clamp(pitch, deg_to_rad(-89), deg_to_rad(89))
-#
-		#rotation.y = yaw
-		#camera.rotation.x = pitch
-#
-#
-#func _physics_process(delta: float) -> void:
-	#var direction = Vector3.ZERO
-	#var input = Vector2(
-		#Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		#Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
-	#)
-#
-	#if input.length() > 0:
-		#input = input.normalized()
-		#direction += (transform.basis * Vector3(input.x, 0, input.y)).normalized()
-#
-	## Apply movement
-	#velocity.x = direction.x * speed
-	#velocity.z = direction.z * speed
-#
-	## Gravity
-	#if not is_on_floor():
-		#velocity.y -= gravity * delta
-	#else:
-		#if Input.is_action_just_pressed("jump"):
-			#velocity.y = jump_velocity
-#
-	#move_and_slide()
 
+@export var speed : float = 5.0 ## The movement speed of the player.
+@export var mouse_sensitivity : float = 0.003 ## How much the mouse movement turns us.
+@export var jump_velocity : float = 4.5 ## The velocity of the player's jump.
+@export var gravity : float = 9.8 ## The velocity of gravity applied to the player.
+@export var look_at_target : Node3D ## The optional target the player is looking at.
+@export var look_at_speed : float ## The speed with which we stare at the look_at_target.
+@export var move_disabled : bool ## Whether the player can currently move. 
 
-extends CharacterBody3D
+var yaw : float = 0.0 ## The current stored yaw of the camera.
+var pitch : float = 0.0 ## The current stored pitch of the camera.
 
-@export var speed := 5.0
-@export var mouse_sensitivity := 0.003
-@export var jump_velocity := 4.5
-@export var gravity := 9.8
-
-var yaw := 0.0
-var pitch := 0.0
-
-@onready var camera = $Camera3D
+@export var camera : Camera3D ## The player camera.
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+## Catches unhandled input. Handles player and camera rotation.
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
+		if look_at_target:
+			return
+		
 		yaw -= event.relative.x * mouse_sensitivity
 		pitch -= event.relative.y * mouse_sensitivity
 		pitch = clamp(pitch, deg_to_rad(-89), deg_to_rad(89))
@@ -77,6 +31,7 @@ func _unhandled_input(event):
 		rotation.y = yaw
 		camera.rotation.x = pitch
 
+## Runs on the physics tick. Does the actual movement.
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var input = Vector2(
@@ -89,8 +44,9 @@ func _physics_process(delta):
 		direction += (transform.basis * Vector3(input.x, 0, input.y)).normalized()
 
 	# Apply movement
-	velocity.x = direction.x * speed
-	velocity.z = direction.z * speed
+	if !move_disabled:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 
 	# Gravity
 	if not is_on_floor():
@@ -100,3 +56,32 @@ func _physics_process(delta):
 			velocity.y = jump_velocity
 
 	move_and_slide()
+	
+	# Look-at rotation handling
+	if is_instance_valid(look_at_target):
+		var self_pos = global_transform.origin
+		var target_pos = look_at_target.global_transform.origin
+		var to_target = target_pos - self_pos
+
+		# --- Player Yaw (turn around Y axis only) ---
+		var flat_dir = Vector3(to_target.x, 0, to_target.z)
+		if flat_dir.length_squared() > 0.001:
+			var target_yaw = atan2(-flat_dir.x, -flat_dir.z)
+			var delta_yaw = wrapf(target_yaw - rotation.y, -PI, PI)
+			rotation.y += clamp(delta_yaw, -look_at_speed * delta, look_at_speed * delta)
+
+		# --- Camera Pitch (tilt around X axis only) ---
+		# Get the target direction in global space relative to camera's position
+		var cam_to_target = (target_pos - camera.global_transform.origin).normalized()
+		var forward = -camera.global_transform.basis.z.normalized()
+		
+		# Compute angle between forward and direction-to-target projected onto XZ plane
+		var pitch_angle = asin(cam_to_target.y)
+		var current_pitch = camera.rotation.x
+		var delta_pitch = wrapf(pitch_angle - current_pitch, -PI, PI)
+		camera.rotation.x += clamp(delta_pitch, -look_at_speed * delta, look_at_speed * delta)
+
+		# Clamp pitch to prevent flipping
+		var min_pitch := deg_to_rad(-89.0)
+		var max_pitch := deg_to_rad(89.0)
+		camera.rotation.x = clamp(camera.rotation.x, min_pitch, max_pitch)
