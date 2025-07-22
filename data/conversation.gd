@@ -12,7 +12,7 @@ func get_starting_speech() -> Speech:
 
 
 ## Returns a Speech with the given key.
-func get_sentence(key: String) -> Speech:
+func get_speech(key: String) -> Speech:
 	if key not in speeches:
 		return null
 	return speeches[key]

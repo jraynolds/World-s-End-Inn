@@ -4,4 +4,5 @@ class_name Event
 
 ## Called when this event should transpire.
 func take_effect():
-	pass
+	if !visible: ## Break if we're not visible personally.
+		return

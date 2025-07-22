@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://730oi3autnpm"]
+[gd_scene load_steps=3 format=3 uid="uid://730oi3autnpm"]
 
 [ext_resource type="Script" uid="uid://l0h1eq06sfuk" path="res://ui/dialogue.gd" id="1_fm7tp"]
+[ext_resource type="Script" uid="uid://d0qh1x6qwnnd0" path="res://ui/typewriter.gd" id="2_xl33q"]
 
-[node name="Dialogue" type="Control" node_paths=PackedStringArray("advance_button", "small_advance_button", "name_label", "speech_label")]
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("advance_button", "small_advance_button", "name_label", "speech_typewriter")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -14,7 +15,7 @@ script = ExtResource("1_fm7tp")
 advance_button = NodePath("Button")
 small_advance_button = NodePath("Container/Panel2/Button")
 name_label = NodePath("Container/Panel/Label")
-speech_label = NodePath("Container/Panel2/Label")
+speech_typewriter = NodePath("Container/Panel2/Label")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -70,6 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "Sample text. Describing what the speaker is saying..."
+script = ExtResource("2_xl33q")
 
 [node name="Button" type="Button" parent="Container/Panel2"]
 layout_mode = 1
@@ -87,4 +89,7 @@ grow_vertical = 0
 text = ">>"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="meta_clicked" from="Container/Panel2/Label" to="." method="_on_label_meta_clicked"]
+[connection signal="on_typewriting_begun" from="Container/Panel2/Label" to="." method="_on_typewriting_begun"]
+[connection signal="on_typewriting_ended" from="Container/Panel2/Label" to="." method="_on_typewriting_ended"]
 [connection signal="pressed" from="Container/Panel2/Button" to="." method="_on_button_pressed"]

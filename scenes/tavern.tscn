@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=82 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -57,7 +57,10 @@
 [ext_resource type="Script" uid="uid://bxk6xlk2d5bm1" path="res://components/events/clear_event.gd" id="53_gbbts"]
 [ext_resource type="PackedScene" uid="uid://bq83r33k7mvf0" path="res://components/events/clear_event.tscn" id="53_yq3p1"]
 [ext_resource type="Resource" uid="uid://dd1frgvvqvrqo" path="res://data/old_man_intro.tres" id="54_xligg"]
+[ext_resource type="PackedScene" uid="uid://c8aihwf3se7q5" path="res://components/events/animation_event.tscn" id="55_ssnxt"]
+[ext_resource type="PackedScene" uid="uid://bmf0mbwdvfpw3" path="res://components/dialogue/speech.tscn" id="55_taapi"]
 [ext_resource type="PackedScene" uid="uid://ds21kgqv2h0wj" path="res://assets/characters/old_man.tscn" id="55_yq3p1"]
+[ext_resource type="PackedScene" uid="uid://b8jxnoef32b5s" path="res://components/events/head_look_at_event.tscn" id="57_5roai"]
 [ext_resource type="Script" uid="uid://gsfykgq3787n" path="res://components/player_cam.gd" id="58_xligg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4vgu"]
@@ -446,7 +449,7 @@ shape = SubResource("CylinderShape3D_u4jmd")
 [node name="CollisionShape3D" parent="Tavern_00/Clearable table/Interactable" index="0"]
 shape = SubResource("SphereShape3D_gjunt")
 
-[node name="ClearEvent" parent="Tavern_00/Clearable table/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear table" parent="Tavern_00/Clearable table/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
 [node name="Clearable center rubble" type="RigidBody3D" parent="Tavern_00"]
@@ -464,16 +467,30 @@ shape = SubResource("CapsuleShape3D_3i17g")
 [node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/Interactable" index="0"]
 shape = SubResource("SphereShape3D_u4jmd")
 
-[node name="ClearEvent" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
-[node name="VisibilityEvent2" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+[node name="Make old man visible" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
 nodes_to_change_visibility = {
 NodePath("../../../../Old Man"): 0
 }
 
-[node name="ConversationEvent" parent="Tavern_00/Clearable center rubble/Interactable" instance=ExtResource("53_0jbij")]
+[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Interactable" instance=ExtResource("53_0jbij")]
 conversation = ExtResource("54_xligg")
+
+[node name="start" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man" node_paths=PackedStringArray("speaker") instance=ExtResource("55_taapi")]
+speaker = NodePath("../../../../../Old Man")
+speech_array = [NodePath("Animate old man looking"), "Do my old eyes deceive me, or do I see someone ", NodePath("Old man head look at player"), "", ""]
+
+[node name="Animate old man looking" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man/start" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+animation_target = NodePath("../../../../../../Old Man")
+animation_name = "looking"
+
+[node name="Old man head look at player" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man/start" instance=ExtResource("57_5roai")]
+
+[node name="happened" type="Node3D" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man"]
+
+[node name="left" type="Node3D" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man"]
 
 [node name="Clearable corner rubble" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7123, 0, -3.58369)
@@ -491,7 +508,7 @@ shape = SubResource("SphereShape3D_gbbts")
 [node name="CollisionShape3D" parent="Tavern_00/Clearable corner rubble/Interactable" index="0"]
 shape = SubResource("SphereShape3D_yq3p1")
 
-[node name="ClearEvent" parent="Tavern_00/Clearable corner rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../.."), NodePath("../../SM_Prop_Stool_04 (11)2"), NodePath("../../SM_Prop_Stool_04 (11)3")]
 
 [node name="SM_Prop_Stool_04 (11)2" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("50_diw3x")]
@@ -518,7 +535,7 @@ message = "Pick up barrel"
 [node name="CollisionShape3D" parent="Tavern_00/Barrel/Interactable" index="0"]
 shape = SubResource("SphereShape3D_0jbij")
 
-[node name="ClearEvent" type="Node3D" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("nodes_to_clear")]
+[node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("nodes_to_clear")]
 script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("../..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
@@ -541,10 +558,11 @@ mesh = SubResource("CapsuleMesh_diw3x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661841, 0.223828)
 script = ExtResource("58_xligg")
 
-[node name="Old Man" parent="." groups=["characters", "look_at_target", "look_at_targets"] instance=ExtResource("55_yq3p1")]
+[node name="Old Man" parent="." node_paths=PackedStringArray("animation_player") groups=["animatables", "characters", "look_at_target", "look_at_targets"] instance=ExtResource("55_yq3p1")]
 transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.93521, -1.16116, -0.429306)
 visible = false
 motion_mode = 1
+animation_player = NodePath("AnimationPlayer")
 
 [editable path="Tavern_00/Clearable table/Interactable"]
 [editable path="Tavern_00/Clearable center rubble/Interactable"]

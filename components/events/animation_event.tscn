@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8aihwf3se7q5"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_o8i6x"]
+[ext_resource type="Script" uid="uid://71wuw5jokd64" path="res://components/events/animation_event.gd" id="2_2vlwh"]
+
+[node name="AnimationEvent" instance=ExtResource("1_o8i6x")]
+script = ExtResource("2_2vlwh")
+animation_target = ""
+animation_name = ""

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Interaction="*res://ui/interaction.tscn"
 Dialogue="*res://ui/dialogue.tscn"
+Globals="*res://globals.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/mixamo_animation_retargeter/plugin.cfg")
 
 [global_group]
 
@@ -26,6 +31,7 @@ player="The player object"
 cameras="Cameras"
 characters="Characters."
 look_at_targets="Targets events cause the camera to look at."
+animatables="Objects that have animation players. They should store that reference as animation_player."
 
 [input]
 
@@ -69,3 +75,9 @@ activate={
 3d_physics/layer_1="World objects"
 3d_physics/layer_2="Player"
 3d_physics/layer_8="Volumes"
+
+[parley]
+
+stores/character_store_path="uid://drd7jbhabr80b"
+stores/action_store_path="uid://ce65w5hty5yel"
+stores/fact_store_path="uid://cmien86bi7bfv"

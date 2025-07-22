@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8jxnoef32b5s"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_xxtf0"]
+[ext_resource type="Script" uid="uid://182fjrrq480q" path="res://components/events/head_look_at_event.gd" id="2_umu7j"]
+
+[node name="HeadLookAtEvent" instance=ExtResource("1_xxtf0")]
+script = ExtResource("2_umu7j")
+character_looking = ""
+look_at_target = ""

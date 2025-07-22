@@ -7,4 +7,6 @@ class_name ConversationEvent
 ## Called when this event should transpire.
 ## Begins the conversation.
 func take_effect():
+	super()
+	
 	Dialogue.set_conversation(conversation)

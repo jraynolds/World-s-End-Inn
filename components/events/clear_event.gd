@@ -7,5 +7,7 @@ class_name ClearEvent
 ## Called when this event should transpire.
 ## Frees the nodes in the nodes_to_clear array.
 func take_effect():
+	super()
+	
 	for node in nodes_to_clear:
 		node.queue_free()

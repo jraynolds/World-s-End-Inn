@@ -5,3 +5,6 @@ class_name Sentence
 @export var speaker : String ## The speaker for this text.
 @export var focus_speaker : bool ## Whether we should turn the camera to them while they speak.
 @export_multiline var words : String ## What text gets output.
+
+@export var beginning_events : Array ## What Events should play when we begin this sentence.
+@export var ending_events : Array ## What Events should play when we end this sentence.
