@@ -1,7 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dd1frgvvqvrqo"]
-
-[ext_resource type="Script" uid="uid://cp2lpit2hf78" path="res://data/conversation.gd" id="1_jsvfc"]
-
-[resource]
-script = ExtResource("1_jsvfc")
-metadata/_custom_type_script = "uid://cp2lpit2hf78"

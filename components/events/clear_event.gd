@@ -9,5 +9,7 @@ class_name ClearEvent
 func take_effect():
 	super()
 	
+	print("Clearing nodes:")
 	for node in nodes_to_clear:
+		print("Clearing node " + node.name)
 		node.queue_free()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bss0it8jwepnj"]
+
+[ext_resource type="Script" uid="uid://bj6j4hkohgf2k" path="res://components/dialogue/conversation_leaf.gd" id="1_hgrbe"]
+
+[node name="ConversationLeaf" type="Node"]
+script = ExtResource("1_hgrbe")

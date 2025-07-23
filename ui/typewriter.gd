@@ -24,12 +24,9 @@ var stripped_text_left : PackedStringArray ## The final text, as an array of str
 var skip_typewriter : bool ## Whether we should abort early and just show the text.
 var typewriting : bool : ## Whether the typewriter is currently typing.
 	set(val):
-		print(val)
 		if val and !typewriting:
-			print("begun")
 			on_typewriting_begun.emit()
 		elif !val and typewriting:
-			print("ended")
 			on_typewriting_ended.emit()
 		typewriting = val
 

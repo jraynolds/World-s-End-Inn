@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1v3e6broanb6"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_qjucv"]
+[ext_resource type="Script" uid="uid://pqlemb2toj8r" path="res://components/events/player_motion_active_event.gd" id="2_fr5sx"]
+
+[node name="PlayerMotionActiveEvent" instance=ExtResource("1_qjucv")]
+script = ExtResource("2_fr5sx")
+motion_active = false

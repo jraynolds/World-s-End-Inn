@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=2 format=3 uid="uid://bolyabeu6m7mf"]
+
+[ext_resource type="Script" uid="uid://cwj473iue1388" path="res://data/characters/character_resource.gd" id="1_v0axm"]
+
+[resource]
+script = ExtResource("1_v0axm")
+title = "Old Man"
+metadata/_custom_type_script = "uid://cwj473iue1388"

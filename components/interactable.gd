@@ -29,5 +29,4 @@ func _on_body_exited(body: Node) -> void:
 ## Called when this Interactable is fully interacted with.
 func interacted():
 	for event in events:
-		print(event.name)
 		event.take_effect()

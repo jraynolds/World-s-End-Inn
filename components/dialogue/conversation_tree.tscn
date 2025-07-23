@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://decfska5nq1o2"]
+
+[ext_resource type="Script" uid="uid://7q7g6vkio4t5" path="res://components/dialogue/conversation_tree.gd" id="1_ps03w"]
+
+[node name="ConversationTree" type="Node"]
+script = ExtResource("1_ps03w")

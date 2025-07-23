@@ -1,3 +1,4 @@
+@icon("res://editor/icons/calendar-check-solid-full.svg")
 extends Node3D
 class_name Event
 ## Base-level component for effects that change the game world.

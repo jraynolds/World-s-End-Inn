@@ -14,11 +14,15 @@ enum BooleanMode {
 func take_effect():
 	super()
 	
+	print("Changing node visibilities:")
 	for node in nodes_to_change_visibility.keys():
 		match nodes_to_change_visibility[node]:
 			BooleanMode.True:
+				print("Changing node " + node.name + " visibility to true")
 				node.visible = true
 			BooleanMode.False:
+				print("Changing node " + node.name + " visibility to false")
 				node.visible = false
 			BooleanMode.Toggle:
+				print("Changing node " + node.name + " visibility to " + str(!node.visible))
 				node.visible = !node.visible

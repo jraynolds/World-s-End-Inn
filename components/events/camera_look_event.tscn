@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://da17y052523ox"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_kytj4"]
+[ext_resource type="Script" uid="uid://cgyoaaaakqusr" path="res://components/events/camera_look_event.gd" id="2_avdg7"]
+
+[node name="CameraLookEvent" instance=ExtResource("1_kytj4")]
+script = ExtResource("2_avdg7")

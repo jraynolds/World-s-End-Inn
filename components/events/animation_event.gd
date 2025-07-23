@@ -17,4 +17,6 @@ func take_effect():
 	animation_player = animation_player as AnimationPlayer
 	assert(animation_player, "That animation player isn't an AnimationPlayer!")
 	assert(animation_player.has_animation(animation_name), "That AnimationPlayer doesn't have that animation!")
+	
+	print("Playing animation " + animation_name + " for animation target " + animation_target.name)
 	animation_player.play(animation_name)

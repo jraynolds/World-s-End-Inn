@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=86 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -56,12 +56,16 @@
 [ext_resource type="PackedScene" uid="uid://batvf62relpnb" path="res://components/events/conversation_event.tscn" id="53_0jbij"]
 [ext_resource type="Script" uid="uid://bxk6xlk2d5bm1" path="res://components/events/clear_event.gd" id="53_gbbts"]
 [ext_resource type="PackedScene" uid="uid://bq83r33k7mvf0" path="res://components/events/clear_event.tscn" id="53_yq3p1"]
-[ext_resource type="Resource" uid="uid://dd1frgvvqvrqo" path="res://data/old_man_intro.tres" id="54_xligg"]
 [ext_resource type="PackedScene" uid="uid://c8aihwf3se7q5" path="res://components/events/animation_event.tscn" id="55_ssnxt"]
-[ext_resource type="PackedScene" uid="uid://bmf0mbwdvfpw3" path="res://components/dialogue/speech.tscn" id="55_taapi"]
+[ext_resource type="PackedScene" uid="uid://bmf0mbwdvfpw3" path="res://components/dialogue/conversation_branch.tscn" id="55_taapi"]
 [ext_resource type="PackedScene" uid="uid://ds21kgqv2h0wj" path="res://assets/characters/old_man.tscn" id="55_yq3p1"]
+[ext_resource type="PackedScene" uid="uid://decfska5nq1o2" path="res://components/dialogue/conversation_tree.tscn" id="57_0l7v7"]
+[ext_resource type="PackedScene" uid="uid://bss0it8jwepnj" path="res://components/dialogue/conversation_leaf.tscn" id="57_3w4ku"]
 [ext_resource type="PackedScene" uid="uid://b8jxnoef32b5s" path="res://components/events/head_look_at_event.tscn" id="57_5roai"]
 [ext_resource type="Script" uid="uid://gsfykgq3787n" path="res://components/player_cam.gd" id="58_xligg"]
+[ext_resource type="PackedScene" uid="uid://da17y052523ox" path="res://components/events/camera_look_event.tscn" id="61_e7i3n"]
+[ext_resource type="PackedScene" uid="uid://d1v3e6broanb6" path="res://components/events/player_motion_active_event.tscn" id="62_4ubi3"]
+[ext_resource type="Resource" uid="uid://bolyabeu6m7mf" path="res://data/characters/old_man.tres" id="63_5roai"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4vgu"]
 size = Vector3(10.5578, 1.42377, 8.11181)
@@ -475,22 +479,8 @@ nodes_to_change_visibility = {
 NodePath("../../../../Old Man"): 0
 }
 
-[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Interactable" instance=ExtResource("53_0jbij")]
-conversation = ExtResource("54_xligg")
-
-[node name="start" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man" node_paths=PackedStringArray("speaker") instance=ExtResource("55_taapi")]
-speaker = NodePath("../../../../../Old Man")
-speech_array = [NodePath("Animate old man looking"), "Do my old eyes deceive me, or do I see someone ", NodePath("Old man head look at player"), "", ""]
-
-[node name="Animate old man looking" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man/start" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
-animation_target = NodePath("../../../../../../Old Man")
-animation_name = "looking"
-
-[node name="Old man head look at player" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man/start" instance=ExtResource("57_5roai")]
-
-[node name="happened" type="Node3D" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man"]
-
-[node name="left" type="Node3D" parent="Tavern_00/Clearable center rubble/Interactable/Speech with old man"]
+[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+conversation_tree = NodePath("../../../../Old Man/Intro conversation")
 
 [node name="Clearable corner rubble" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7123, 0, -3.58369)
@@ -562,7 +552,53 @@ script = ExtResource("58_xligg")
 transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.93521, -1.16116, -0.429306)
 visible = false
 motion_mode = 1
+resource = ExtResource("63_5roai")
 animation_player = NodePath("AnimationPlayer")
+
+[node name="Intro conversation" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
+events_before = [NodePath("Camera look at old man"), NodePath("Player motion off")]
+branches = [NodePath("start"), NodePath("happened"), NodePath("left")]
+events_after = [NodePath("Player motion on")]
+
+[node name="Camera look at old man" parent="Old Man/Intro conversation" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
+target = NodePath("../..")
+
+[node name="Player motion off" parent="Old Man/Intro conversation" instance=ExtResource("62_4ubi3")]
+
+[node name="start" parent="Old Man/Intro conversation" instance=ExtResource("55_taapi")]
+
+[node name="Animate old man looking" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+animation_target = NodePath("../../..")
+animation_name = "looking"
+
+[node name="ConversationLeaf" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("events_before") instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+events_before = [NodePath("../Animate old man looking")]
+speeches = Array[String](["Do my old eyes decieve me, or is that someone inside the rubble...?"])
+
+[node name="Old man head look at player" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("character_looking", "look_at_target") instance=ExtResource("57_5roai")]
+character_looking = NodePath("../../..")
+look_at_target = NodePath("../../../../Player")
+
+[node name="ConversationLeaf2" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("events_before") instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+events_before = [NodePath("../Old man head look at player")]
+speeches = Array[String](["My word! Thank heavens you're not a ghost or a figment of my imagination.", "Though to come here, after [url=happened]all that happened[/url], you must be brave. I'm the [url=left]only one left...[/url]"])
+
+[node name="happened" parent="Old Man/Intro conversation" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Intro conversation/happened" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+speeches = Array[String](["Ah, yes. Not surprising you'd know, as distant as this place is... I imagine word hardly carries back to civilized society.", "I'm not sure what to call it besides a massacre. An avoidable tragedy.	", "...pardon me, but did you happen to find any remaining ale in the rubble? My throat grows easily parched these days."])
+
+[node name="left" parent="Old Man/Intro conversation" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Intro conversation/left" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+speeches = Array[String](["Yes. It brings a tear to my eye, that I alone survived...", "So many good people. So many trying to make this world a better place, like your father...", "...pardon me, but did you happen to find any remaining ale in the rubble? My throat grows easily parched these days."])
+
+[node name="Player motion on" parent="Old Man/Intro conversation" instance=ExtResource("62_4ubi3")]
+motion_active = true
 
 [editable path="Tavern_00/Clearable table/Interactable"]
 [editable path="Tavern_00/Clearable center rubble/Interactable"]
