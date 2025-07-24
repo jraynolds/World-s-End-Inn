@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=85 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -50,19 +50,20 @@
 [ext_resource type="PackedScene" uid="uid://dwucp7d4c1pvs" path="res://assets/buildings/pieces/SM_Prop_Table_Wood_10 (3).fbx" id="48_chm48"]
 [ext_resource type="PackedScene" uid="uid://d1nais5cn5bak" path="res://objects/blackened table.tscn" id="49_i4vgu"]
 [ext_resource type="PackedScene" uid="uid://bubjvk5v78ee3" path="res://objects/blackened stool.tscn" id="50_diw3x"]
-[ext_resource type="Script" uid="uid://b53ffhk1l80mu" path="res://characters/player/player.gd" id="51_diw3x"]
 [ext_resource type="PackedScene" uid="uid://d1fjr0v37s5rc" path="res://components/events/visibility_event.tscn" id="52_3i17g"]
 [ext_resource type="PackedScene" uid="uid://bjk27uw3cvbja" path="res://components/interactable.tscn" id="52_gbbts"]
 [ext_resource type="PackedScene" uid="uid://batvf62relpnb" path="res://components/events/conversation_event.tscn" id="53_0jbij"]
 [ext_resource type="Script" uid="uid://bxk6xlk2d5bm1" path="res://components/events/clear_event.gd" id="53_gbbts"]
 [ext_resource type="PackedScene" uid="uid://bq83r33k7mvf0" path="res://components/events/clear_event.tscn" id="53_yq3p1"]
+[ext_resource type="PackedScene" uid="uid://cm8yd7ehqbma4" path="res://components/events/change_parent_event.tscn" id="55_e7i3n"]
 [ext_resource type="PackedScene" uid="uid://c8aihwf3se7q5" path="res://components/events/animation_event.tscn" id="55_ssnxt"]
 [ext_resource type="PackedScene" uid="uid://bmf0mbwdvfpw3" path="res://components/dialogue/conversation_branch.tscn" id="55_taapi"]
 [ext_resource type="PackedScene" uid="uid://ds21kgqv2h0wj" path="res://assets/characters/old_man.tscn" id="55_yq3p1"]
+[ext_resource type="PackedScene" uid="uid://bppglekvwr2so" path="res://characters/player/player.tscn" id="56_3w4ku"]
+[ext_resource type="PackedScene" uid="uid://bfqt8hcqu78ae" path="res://components/events/change_transform_event.tscn" id="56_4ubi3"]
 [ext_resource type="PackedScene" uid="uid://decfska5nq1o2" path="res://components/dialogue/conversation_tree.tscn" id="57_0l7v7"]
 [ext_resource type="PackedScene" uid="uid://bss0it8jwepnj" path="res://components/dialogue/conversation_leaf.tscn" id="57_3w4ku"]
 [ext_resource type="PackedScene" uid="uid://b8jxnoef32b5s" path="res://components/events/head_look_at_event.tscn" id="57_5roai"]
-[ext_resource type="Script" uid="uid://gsfykgq3787n" path="res://components/player_cam.gd" id="58_xligg"]
 [ext_resource type="PackedScene" uid="uid://da17y052523ox" path="res://components/events/camera_look_event.tscn" id="61_e7i3n"]
 [ext_resource type="PackedScene" uid="uid://d1v3e6broanb6" path="res://components/events/player_motion_active_event.tscn" id="62_4ubi3"]
 [ext_resource type="Resource" uid="uid://bolyabeu6m7mf" path="res://data/characters/old_man.tres" id="63_5roai"]
@@ -119,14 +120,6 @@ radius = 0.513885
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0jbij"]
 radius = 0.874635
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4vgu"]
-radius = 0.35
-height = 1.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_diw3x"]
-radius = 0.35
-height = 1.5
 
 [node name="Tavern" type="Node3D"]
 
@@ -525,28 +518,32 @@ message = "Pick up barrel"
 [node name="CollisionShape3D" parent="Tavern_00/Barrel/Interactable" index="0"]
 shape = SubResource("SphereShape3D_0jbij")
 
+[node name="ChangeParentEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+child = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
+new_parent = NodePath("../../../../Player/Model/Armature/Skeleton/RightHandAttachment")
+keep_position = true
+
+[node name="ChangeTransformEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+node = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
+new_position = Vector3(-0.0910044, -0.0801092, 0.122002)
+change_position = true
+new_rotation = Vector3(1.046, 1.629, 0.971)
+change_rotation = true
+new_scale = Vector3(0.5, 0.5, 0.5)
+change_scale = true
+tween_duration = 0.25
+
+[node name="AnimationEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+animation_target = NodePath("../../../../Player")
+animation_name = "carrying"
+
 [node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("nodes_to_clear")]
 script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("../..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") groups=["characters", "player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99419, 0.832556, 1.86209)
-collision_layer = 2
-collision_mask = 255
-script = ExtResource("51_diw3x")
-look_at_speed = 2.0
-camera = NodePath("Camera3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_i4vgu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_diw3x")
-
-[node name="Camera3D" type="Camera3D" parent="Player" groups=["cameras"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661841, 0.223828)
-script = ExtResource("58_xligg")
+[node name="Player" parent="." instance=ExtResource("56_3w4ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77055, 0.0667084, 2.06968)
 
 [node name="Old Man" parent="." node_paths=PackedStringArray("animation_player") groups=["animatables", "characters", "look_at_target", "look_at_targets"] instance=ExtResource("55_yq3p1")]
 transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.93521, -1.16116, -0.429306)
@@ -576,9 +573,8 @@ speaker = ExtResource("63_5roai")
 events_before = [NodePath("../Animate old man looking")]
 speeches = Array[String](["Do my old eyes decieve me, or is that someone inside the rubble...?"])
 
-[node name="Old man head look at player" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("character_looking", "look_at_target") instance=ExtResource("57_5roai")]
+[node name="Old man head look at player" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("character_looking") instance=ExtResource("57_5roai")]
 character_looking = NodePath("../../..")
-look_at_target = NodePath("../../../../Player")
 
 [node name="ConversationLeaf2" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("events_before") instance=ExtResource("57_3w4ku")]
 speaker = ExtResource("63_5roai")
@@ -604,4 +600,5 @@ motion_active = true
 [editable path="Tavern_00/Clearable center rubble/Interactable"]
 [editable path="Tavern_00/Clearable corner rubble/Interactable"]
 [editable path="Tavern_00/Barrel/Interactable"]
+[editable path="Player"]
 [editable path="Old Man"]

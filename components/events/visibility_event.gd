@@ -12,7 +12,8 @@ enum BooleanMode {
 ## Called when this event should transpire.
 ## Changes the visibility of given nodes.
 func take_effect():
-	super()
+	if !super():
+		return
 	
 	print("Changing node visibilities:")
 	for node in nodes_to_change_visibility.keys():

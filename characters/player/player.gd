@@ -14,6 +14,7 @@ var yaw : float = 0.0 ## The current stored yaw of the camera.
 var pitch : float = 0.0 ## The current stored pitch of the camera.
 
 @export var camera : Camera3D ## The player camera.
+@export var animation_player : AnimationPlayer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

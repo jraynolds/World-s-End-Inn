@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm8yd7ehqbma4"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_u5m2b"]
+[ext_resource type="Script" uid="uid://cn4l8lo2i0mv" path="res://components/events/change_parent_event.gd" id="2_01tkf"]
+
+[node name="ChangeParentEvent" instance=ExtResource("1_u5m2b")]
+script = ExtResource("2_01tkf")
+keep_position = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfqt8hcqu78ae"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_nq8nf"]
+[ext_resource type="Script" uid="uid://hll8p3y7ljne" path="res://components/events/change_transform_event.gd" id="2_0jes1"]
+
+[node name="ChangeTransformEvent" instance=ExtResource("1_nq8nf")]
+script = ExtResource("2_0jes1")
+new_position = Vector3(0, 0, 0)
+change_position = false
+new_rotation = Vector3(0, 0, 0)
+change_rotation = false
+new_scale = Vector3(0, 0, 0)
+change_scale = false
+tween_duration = 0.0

@@ -135,140 +135,140 @@ func _set_randomize(new_value: bool) -> void:
 func _set_arm_lower_left(new_value: int) -> void:
 	arm_lower_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ArmLowerLeft, "ArmLowerLeft", new_value)
+		set_mesh(%Skeleton/ArmLowerLeft, "ArmLowerLeft", new_value)
 
 
 func _set_arm_lower_right(new_value: int) -> void:
 	arm_lower_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ArmLowerRight, "ArmLowerRight", new_value)
+		set_mesh(%Skeleton/ArmLowerRight, "ArmLowerRight", new_value)
 
 func _set_arm_upper_left(new_value: int) -> void:
 	arm_upper_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ArmUpperLeft, "ArmUpperLeft", new_value)
+		set_mesh(%Skeleton/ArmUpperLeft, "ArmUpperLeft", new_value)
 
 func _set_arm_upper_right(new_value: int) -> void:
 	arm_upper_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ArmUpperRight, "ArmUpperRight", new_value)
+		set_mesh(%Skeleton/ArmUpperRight, "ArmUpperRight", new_value)
 
 func _set_back_attachment(new_value: int) -> void:
 	back_attachment = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/BackAttachment, "BackAttachment", new_value)
+		set_mesh(%Skeleton/BackAttachment, "BackAttachment", new_value)
 
 func _set_ear(new_value: int) -> void:
 	ear = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Ear, "Ear_Ear", new_value)
+		set_mesh(%Skeleton/Ear, "Ear_Ear", new_value)
 
 func _set_elbow_attach_left(new_value: int) -> void:
 	elbow_attach_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ElbowAttachLeft, "ElbowAttachLeft", new_value)
+		set_mesh(%Skeleton/ElbowAttachLeft, "ElbowAttachLeft", new_value)
 
 func _set_elbow_attach_right(new_value: int) -> void:
 	elbow_attach_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ElbowAttachRight, "ElbowAttachRight", new_value)
+		set_mesh(%Skeleton/ElbowAttachRight, "ElbowAttachRight", new_value)
 
 func _set_eyebrow(new_value: int) -> void:
 	eyebrow = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Eyebrow, "Eyebrow", new_value)
+		set_mesh(%Skeleton/Eyebrow, "Eyebrow", new_value)
 
 func _set_hair(new_value: int) -> void:
 	hair = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Hair, "_Hair_", new_value)
+		set_mesh(%Skeleton/Hair, "_Hair_", new_value)
 
 func _set_facial_hair(new_value: int) -> void:
 	facial_hair = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/FacialHair, "FacialHair", new_value)
+		set_mesh(%Skeleton/FacialHair, "FacialHair", new_value)
 
 func _set_hand_left(new_value: int) -> void:
 	hand_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HandLeft, "HandLeft", new_value)
+		set_mesh(%Skeleton/HandLeft, "HandLeft", new_value)
 
 func _set_hand_right(new_value: int) -> void:
 	hand_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HandRight, "HandRight", new_value)
+		set_mesh(%Skeleton/HandRight, "HandRight", new_value)
 
 func _set_head(new_value: int) -> void:
 	head = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Head, "Head", new_value)
+		set_mesh(%Skeleton/Head, "Head", new_value)
 
 func _set_head_no_elements(new_value: int) -> void:
 	head_no_elements = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Head_No_Elements, "Head_No_Elements", new_value)
+		set_mesh(%Skeleton/Head_No_Elements, "Head_No_Elements", new_value)
 
 func _set_head_coverings_base_hair(new_value: int) -> void:
 	head_coverings_base_hair = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HeadCoverings_Base_Hair, "HeadCoverings_Base_Hair", new_value)
+		set_mesh(%Skeleton/HeadCoverings_Base_Hair, "HeadCoverings_Base_Hair", new_value)
 
 func _set_head_coverings_no_facial_hair(new_value: int) -> void:
 	head_coverings_no_facial_hair = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HeadCoverings_No_FacialHair, "HeadCoverings_No_FacialHair", new_value)
+		set_mesh(%Skeleton/HeadCoverings_No_FacialHair, "HeadCoverings_No_FacialHair", new_value)
 
 func _set_head_coverings_no_hair(new_value: int) -> void:
 	head_coverings_no_hair = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HeadCoverings_No_Hair, "HeadCoverings_No_Hair", new_value)
+		set_mesh(%Skeleton/HeadCoverings_No_Hair, "HeadCoverings_No_Hair", new_value)
 
 func _set_helmet_attachment(new_value: int) -> void:
 	helmet_attachment = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HelmetAttachment, "HelmetAttachment", new_value)
+		set_mesh(%Skeleton/HelmetAttachment, "HelmetAttachment", new_value)
 
 func _set_hips(new_value: int) -> void:
 	hips = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Hips, "_Hips_", new_value)
+		set_mesh(%Skeleton/Hips, "_Hips_", new_value)
 
 func _set_hips_attachment(new_value: int) -> void:
 	hips_attachment = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/HipsAttachment, "HipsAttachment", new_value)
+		set_mesh(%Skeleton/HipsAttachment, "HipsAttachment", new_value)
 
 func _set_knee_attach_left(new_value: int) -> void:
 	knee_attach_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/KneeAttachLeft, "KneeAttachLeft", new_value)
+		set_mesh(%Skeleton/KneeAttachLeft, "KneeAttachLeft", new_value)
 
 func _set_knee_attach_right(new_value: int) -> void:
 	knee_attach_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/KneeAttachRight, "KneeAttachRight", new_value)
+		set_mesh(%Skeleton/KneeAttachRight, "KneeAttachRight", new_value)
 
 func _set_leg_left(new_value: int) -> void:
 	leg_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/LegLeft, "LegLeft", new_value)
+		set_mesh(%Skeleton/LegLeft, "LegLeft", new_value)
 
 func _set_leg_right(new_value: int) -> void:
 	leg_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/LegRight, "LegRight", new_value)
+		set_mesh(%Skeleton/LegRight, "LegRight", new_value)
 
 func _set_shoulder_attach_left(new_value: int) -> void:
 	shoulder_attach_left = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ShoulderAttachLeft, "ShoulderAttachLeft", new_value)
+		set_mesh(%Skeleton/ShoulderAttachLeft, "ShoulderAttachLeft", new_value)
 
 func _set_shoulder_attach_right(new_value: int) -> void:
 	shoulder_attach_right = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/ShoulderAttachRight, "ShoulderAttachRight", new_value)
+		set_mesh(%Skeleton/ShoulderAttachRight, "ShoulderAttachRight", new_value)
 
 func _set_torso(new_value: int) -> void:
 	torso = new_value
 	if is_inside_tree():
-		set_mesh(%GeneralSkeleton/Torso, "Torso", new_value)
+		set_mesh(%Skeleton/Torso, "Torso", new_value)

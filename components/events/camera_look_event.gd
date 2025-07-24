@@ -7,7 +7,8 @@ class_name CameraLookEvent
 ## Called when this event should transpire.
 ## Sets the camera look target to the target.
 func take_effect():
-	super()
+	if !super():
+		return
 	
 	print("Making player camera look at target " + target.name)
 	Globals.get_player().look_at_target = target

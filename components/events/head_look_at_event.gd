@@ -10,7 +10,8 @@ class_name HeadLookAtEvent
 ## Called when this event should transpire.
 ## Sets the head look at for the character.
 func take_effect():
-	super()
+	if !super():
+		return
 	
 	print("Setting character " + character_looking.name + " head look target to " + look_at_target.name)
 	character_looking.head_look_at_target = look_at_target

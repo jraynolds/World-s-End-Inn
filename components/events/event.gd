@@ -6,4 +6,6 @@ class_name Event
 ## Called when this event should transpire.
 func take_effect():
 	if !visible: ## Break if we're not visible personally.
-		return
+		print("Event " + name + " isn't visible. Ignoring")
+		return false
+	return true

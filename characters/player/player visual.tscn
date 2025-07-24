@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://de6puk88gmfbi"]
+
+[ext_resource type="PackedScene" uid="uid://6i0cfagi1opp" path="res://assets/characters/char_visual.tscn" id="1_flafs"]
+
+[node name="Visual" instance=ExtResource("1_flafs")]
+arm_lower_left = 38
+arm_lower_right = 38
+hand_left = 10
+hand_right = 10

@@ -9,7 +9,8 @@ class_name AnimationEvent
 
 ## Called when this event should transpire. Finds the animation target and plays its animation.
 func take_effect():
-	super()
+	if !super():
+		return
 	
 	assert(animation_target, "We couldn't find that animation target!")
 	var animation_player = animation_target.animation_player

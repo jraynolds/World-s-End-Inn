@@ -4,7 +4,7 @@ extends Node3D
 @export var reconfigure_mesh_instances: bool = false : set = _set_reconfigure_mesh_instances
 
 func _set_reconfigure_mesh_instances(_new_value: bool) -> void:
-	var skeleton: Skeleton3D = %GeneralSkeleton
+	var skeleton: Skeleton3D = %Skeleton
 	@warning_ignore("unassigned_variable")
 	var names_dict: Dictionary
 
