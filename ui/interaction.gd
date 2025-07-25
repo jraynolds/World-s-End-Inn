@@ -1,9 +1,16 @@
 extends HBoxContainer
 ## Global class for player interaction UI and handling.
 
-@export var progress_bar : TextureProgressBar
-@export var key_label : Label
-@export var action_label : Label
+@export var progress_bar : TextureProgressBar ## The circular progress bar.
+@export var key_label : Label ## The Label for the current interaction key.
+@export var action_label : Label ## The Label for the effect of the current action.
+var suppressed : bool : ## Whether the UI should be forcibly hidden.
+	set(val):
+		suppressed = val
+		if val:
+			visible = false
+		else :
+			visible = earliest_interactable != null
 
 var interactables : Array[Interactable] ## The list of Interactables the player can currently use.
 var earliest_interactable : Interactable : ## The current Interactable the player can use, if any. We prioritize the earliest added.

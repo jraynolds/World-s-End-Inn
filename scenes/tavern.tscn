@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=89 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -64,6 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://decfska5nq1o2" path="res://components/dialogue/conversation_tree.tscn" id="57_0l7v7"]
 [ext_resource type="PackedScene" uid="uid://bss0it8jwepnj" path="res://components/dialogue/conversation_leaf.tscn" id="57_3w4ku"]
 [ext_resource type="PackedScene" uid="uid://b8jxnoef32b5s" path="res://components/events/head_look_at_event.tscn" id="57_5roai"]
+[ext_resource type="Shader" uid="uid://bhnsepamxqw7d" path="res://assets/textures/blueprint.tres" id="59_7nka6"]
 [ext_resource type="PackedScene" uid="uid://da17y052523ox" path="res://components/events/camera_look_event.tscn" id="61_e7i3n"]
 [ext_resource type="PackedScene" uid="uid://d1v3e6broanb6" path="res://components/events/player_motion_active_event.tscn" id="62_4ubi3"]
 [ext_resource type="Resource" uid="uid://bolyabeu6m7mf" path="res://data/characters/old_man.tres" id="63_5roai"]
@@ -109,6 +110,12 @@ height = 8.35061
 [sub_resource type="SphereShape3D" id="SphereShape3D_u4jmd"]
 radius = 3.21382
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ubi3"]
+radius = 0.308423
+height = 2.82998
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mkblb"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_gbbts"]
 radius = 1.811
 
@@ -121,151 +128,159 @@ radius = 0.513885
 [sub_resource type="SphereShape3D" id="SphereShape3D_0jbij"]
 radius = 0.874635
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nka6"]
+render_priority = 0
+shader = ExtResource("59_7nka6")
+shader_parameter/Color = Color(1, 1, 0, 1)
+shader_parameter/Opacity = 0.2
+
 [node name="Tavern" type="Node3D"]
 
-[node name="Preset_Tavern_01_binary" parent="." instance=ExtResource("1_ty6t4")]
+[node name="Presets" type="Node3D" parent="."]
+
+[node name="Preset_Tavern_01_binary" parent="Presets" instance=ExtResource("1_ty6t4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47512, 0, -4.62533)
 visible = false
 
-[node name="SM_Bld_House_Base_Corner_01 (13)" parent="." instance=ExtResource("2_f6k6c")]
+[node name="SM_Bld_House_Base_Corner_01 (13)" parent="Presets" instance=ExtResource("2_f6k6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9014, 0, -18.3744)
 
-[node name="SM_Bld_House_Base_Wall_01 (21)" parent="." instance=ExtResource("3_i4vgu")]
+[node name="SM_Bld_House_Base_Wall_01 (21)" parent="Presets" instance=ExtResource("3_i4vgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5108, 0, -20.546)
 
-[node name="SM_Bld_House_Floor_Stone_01 (12)" parent="." instance=ExtResource("4_diw3x")]
+[node name="SM_Bld_House_Floor_Stone_01 (12)" parent="Presets" instance=ExtResource("4_diw3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3018, 0, -18.3235)
 
-[node name="SM_Bld_House_Roof_Thatch_01 (13)" parent="." instance=ExtResource("5_q3unb")]
+[node name="SM_Bld_House_Roof_Thatch_01 (13)" parent="Presets" instance=ExtResource("5_q3unb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1699, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_Edge_End_01 (11)" parent="." instance=ExtResource("6_gjunt")]
+[node name="SM_Bld_House_Roof_Thatch_Edge_End_01 (11)" parent="Presets" instance=ExtResource("6_gjunt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4949, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_End_01 (20)" parent="." instance=ExtResource("7_gbbts")]
+[node name="SM_Bld_House_Roof_Thatch_End_01 (20)" parent="Presets" instance=ExtResource("7_gbbts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7106, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_01 (9)" parent="." instance=ExtResource("8_yq3p1")]
+[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_01 (9)" parent="Presets" instance=ExtResource("8_yq3p1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4748, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Edge_01 (8)" parent="." instance=ExtResource("9_3i17g")]
+[node name="SM_Bld_House_Roof_Thatch_Peak_Cap_Edge_01 (8)" parent="Presets" instance=ExtResource("9_3i17g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3455, 0, -3.96267)
 
-[node name="SM_Bld_House_Roof_Thatch_Stick_01 (1)" parent="." instance=ExtResource("10_u4jmd")]
+[node name="SM_Bld_House_Roof_Thatch_Stick_01 (1)" parent="Presets" instance=ExtResource("10_u4jmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_Stick_02 (2)" parent="." instance=ExtResource("11_0jbij")]
+[node name="SM_Bld_House_Roof_Thatch_Stick_02 (2)" parent="Presets" instance=ExtResource("11_0jbij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
 
-[node name="SM_Bld_House_Roof_Thatch_Stick_03 (5)" parent="." instance=ExtResource("12_xligg")]
+[node name="SM_Bld_House_Roof_Thatch_Stick_03 (5)" parent="Presets" instance=ExtResource("12_xligg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3142, 0, 0)
 
-[node name="SM_Bld_House_Supports_01 (26)" parent="." instance=ExtResource("13_ssnxt")]
+[node name="SM_Bld_House_Supports_01 (26)" parent="Presets" instance=ExtResource("13_ssnxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9822, 0, 5.91909)
 
-[node name="SM_Bld_House_Supports_02 (13)" parent="." instance=ExtResource("14_nou5q")]
+[node name="SM_Bld_House_Supports_02 (13)" parent="Presets" instance=ExtResource("14_nou5q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3204, 0, 0)
 
-[node name="SM_Bld_House_Wall_02 (5)" parent="." instance=ExtResource("15_taapi")]
+[node name="SM_Bld_House_Wall_02 (5)" parent="Presets" instance=ExtResource("15_taapi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8838, 0, -22.2146)
 
-[node name="SM_Bld_House_Wall_02 (8)" parent="." instance=ExtResource("16_5roai")]
+[node name="SM_Bld_House_Wall_02 (8)" parent="Presets" instance=ExtResource("16_5roai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.452)
 
-[node name="SM_Bld_House_Wall_Door_02" parent="." instance=ExtResource("17_0l7v7")]
+[node name="SM_Bld_House_Wall_Door_02" parent="Presets" instance=ExtResource("17_0l7v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.5526)
 
-[node name="SM_Bld_House_Wall_Door_02_Door" parent="." instance=ExtResource("18_3w4ku")]
+[node name="SM_Bld_House_Wall_Door_02_Door" parent="Presets" instance=ExtResource("18_3w4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.3483)
 
-[node name="SM_Bld_House_Wall_Window_03 (8)" parent="." instance=ExtResource("19_e7i3n")]
+[node name="SM_Bld_House_Wall_Window_03 (8)" parent="Presets" instance=ExtResource("19_e7i3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.6353)
 
-[node name="SM_Bld_House_Wall_Window_07 (4)" parent="." instance=ExtResource("20_4ubi3")]
+[node name="SM_Bld_House_Wall_Window_07 (4)" parent="Presets" instance=ExtResource("20_4ubi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.3926)
 
-[node name="SM_Bld_House_WoodBeam_01 (26)" parent="." instance=ExtResource("21_7nka6")]
+[node name="SM_Bld_House_WoodBeam_01 (26)" parent="Presets" instance=ExtResource("21_7nka6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5119, 0, -19.9862)
 
-[node name="SM_Bld_House_WoodBeam_01" parent="." instance=ExtResource("22_mkblb")]
+[node name="SM_Bld_House_WoodBeam_01" parent="Presets" instance=ExtResource("22_mkblb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9567, 0, -19.9882)
 
-[node name="SM_Bld_House_WoodBeam_03 (10)" parent="." instance=ExtResource("23_55e34")]
+[node name="SM_Bld_House_WoodBeam_03 (10)" parent="Presets" instance=ExtResource("23_55e34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.976, 0, 0)
 
-[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="." instance=ExtResource("24_6qbef")]
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Presets" instance=ExtResource("24_6qbef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7193, 0, 11.9593)
 
-[node name="SM_Prop_Bar_02 (1)" parent="." instance=ExtResource("25_e3s4h")]
+[node name="SM_Prop_Bar_02 (1)" parent="Presets" instance=ExtResource("25_e3s4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7328, 0, 13.1218)
 
-[node name="SM_Prop_Bar_Gate_01_Door" parent="." instance=ExtResource("26_17grw")]
+[node name="SM_Prop_Bar_Gate_01_Door" parent="Presets" instance=ExtResource("26_17grw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56809, 0, 11.1679)
 
-[node name="SM_Prop_Cabinet_Stackable_01 (1)" parent="." instance=ExtResource("27_a3qre")]
+[node name="SM_Prop_Cabinet_Stackable_01 (1)" parent="Presets" instance=ExtResource("27_a3qre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1833, 0, 11.4379)
 
-[node name="SM_Prop_Destroyed_House_Debris_01" parent="." instance=ExtResource("28_43vwf")]
+[node name="SM_Prop_Destroyed_House_Debris_01" parent="Presets" instance=ExtResource("28_43vwf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4714, 0, 7.01007)
 
-[node name="SM_Prop_Destroyed_House_Debris_02" parent="." instance=ExtResource("29_44522")]
+[node name="SM_Prop_Destroyed_House_Debris_02" parent="Presets" instance=ExtResource("29_44522")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2643, 0, -3.26874)
 
-[node name="SM_Prop_Destroyed_House_Piece_01" parent="." instance=ExtResource("30_bci2f")]
+[node name="SM_Prop_Destroyed_House_Piece_01" parent="Presets" instance=ExtResource("30_bci2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2648, 0, 0)
 
-[node name="SM_Prop_Destroyed_House_Piece_01_Burnt" parent="." instance=ExtResource("31_mspmn")]
+[node name="SM_Prop_Destroyed_House_Piece_01_Burnt" parent="Presets" instance=ExtResource("31_mspmn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6277, 0, 0)
 
-[node name="SM_Prop_Destroyed_House_Piece_02" parent="." instance=ExtResource("32_ifuuv")]
+[node name="SM_Prop_Destroyed_House_Piece_02" parent="Presets" instance=ExtResource("32_ifuuv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.802, 0, 0)
 
-[node name="SM_Prop_Destroyed_House_Piece_02_Burnt" parent="." instance=ExtResource("33_o0div")]
+[node name="SM_Prop_Destroyed_House_Piece_02_Burnt" parent="Presets" instance=ExtResource("33_o0div")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4453, 0, -6.43919)
 
-[node name="SM_Prop_Destroyed_House_Piece_03" parent="." instance=ExtResource("34_vx8a7")]
+[node name="SM_Prop_Destroyed_House_Piece_03" parent="Presets" instance=ExtResource("34_vx8a7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9619, 0, 7.02701)
 
-[node name="SM_Prop_Destroyed_House_Piece_03_Burnt" parent="." instance=ExtResource("35_ampxm")]
+[node name="SM_Prop_Destroyed_House_Piece_03_Burnt" parent="Presets" instance=ExtResource("35_ampxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7356, 0, -6.32563)
 
-[node name="SM_Prop_Destroyed_House_Piece_04" parent="." instance=ExtResource("36_y8qhm")]
+[node name="SM_Prop_Destroyed_House_Piece_04" parent="Presets" instance=ExtResource("36_y8qhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3434, 0, -16.2007)
 
-[node name="SM_Prop_Destroyed_House_Piece_04_Burnt" parent="." instance=ExtResource("37_8y7wb")]
+[node name="SM_Prop_Destroyed_House_Piece_04_Burnt" parent="Presets" instance=ExtResource("37_8y7wb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0498, 0, 8.85895)
 
-[node name="SM_Prop_Destroyed_House_Piece_05" parent="." instance=ExtResource("38_38n0t")]
+[node name="SM_Prop_Destroyed_House_Piece_05" parent="Presets" instance=ExtResource("38_38n0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0448, 0, 6.15768)
 
-[node name="SM_Prop_Destroyed_House_Piece_05_Burnt" parent="." instance=ExtResource("39_g6p70")]
+[node name="SM_Prop_Destroyed_House_Piece_05_Burnt" parent="Presets" instance=ExtResource("39_g6p70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7674, 0, 0)
 
-[node name="SM_Prop_Destroyed_House_Piece_06" parent="." instance=ExtResource("40_cjn1n")]
+[node name="SM_Prop_Destroyed_House_Piece_06" parent="Presets" instance=ExtResource("40_cjn1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4397, 0, -16.1842)
 
-[node name="SM_Prop_Destroyed_House_Piece_07" parent="." instance=ExtResource("41_p6bvu")]
+[node name="SM_Prop_Destroyed_House_Piece_07" parent="Presets" instance=ExtResource("41_p6bvu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8731, 0, 0)
 
-[node name="SM_Prop_Destroyed_House_Piece_07_Burnt" parent="." instance=ExtResource("42_k72p6")]
+[node name="SM_Prop_Destroyed_House_Piece_07_Burnt" parent="Presets" instance=ExtResource("42_k72p6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4958, 0, 0)
 
-[node name="SM_Prop_Shelf_02" parent="." instance=ExtResource("43_xu4mj")]
+[node name="SM_Prop_Shelf_02" parent="Presets" instance=ExtResource("43_xu4mj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1507, 0, 8.43717)
 
-[node name="SM_Prop_Stool_04 (11)" parent="." instance=ExtResource("44_6bx6y")]
+[node name="SM_Prop_Stool_04 (11)" parent="Presets" instance=ExtResource("44_6bx6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1618, 0, 7.99279)
 
-[node name="SM_Prop_TableCloth_03" parent="." instance=ExtResource("45_sp7xo")]
+[node name="SM_Prop_TableCloth_03" parent="Presets" instance=ExtResource("45_sp7xo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42678, 0, 10.2777)
 
-[node name="SM_Prop_Table_Wood_03 (1)" parent="." instance=ExtResource("46_n0kau")]
+[node name="SM_Prop_Table_Wood_03 (1)" parent="Presets" instance=ExtResource("46_n0kau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62771, 0, 9.40422)
 
-[node name="SM_Prop_Table_Wood_06 (1)" parent="." instance=ExtResource("47_5pmis")]
+[node name="SM_Prop_Table_Wood_06 (1)" parent="Presets" instance=ExtResource("47_5pmis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9047, 0, 10.6888)
 
-[node name="SM_Prop_Table_Wood_10 (3)" parent="." instance=ExtResource("48_chm48")]
+[node name="SM_Prop_Table_Wood_10 (3)" parent="Presets" instance=ExtResource("48_chm48")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21947, 0, 11.1134)
 
 [node name="Tavern_00" type="Node3D" parent="."]
@@ -459,21 +474,40 @@ gravity_scale = 0.0
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Tavern_00/Clearable center rubble"]
 shape = SubResource("CapsuleShape3D_3i17g")
 
-[node name="Interactable" parent="Tavern_00/Clearable center rubble" instance=ExtResource("52_gbbts")]
+[node name="Clear center rubble interactable" parent="Tavern_00/Clearable center rubble" instance=ExtResource("52_gbbts")]
 
-[node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/Interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" index="0"]
 shape = SubResource("SphereShape3D_u4jmd")
 
-[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
-[node name="Make old man visible" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+[node name="Make old man visible" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
 nodes_to_change_visibility = {
 NodePath("../../../../Old Man"): 0
 }
 
-[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
 conversation_tree = NodePath("../../../../Old Man/Intro conversation")
+
+[node name="Stool" type="RigidBody3D" parent="Tavern_00"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -4.02862, 0, -4.40567)
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="SM_Prop_Stool_04 (11)3" parent="Tavern_00/Stool" instance=ExtResource("50_diw3x")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Stool"]
+shape = SubResource("CapsuleShape3D_4ubi3")
+
+[node name="Fill mug interactable" parent="Tavern_00/Stool" instance=ExtResource("52_gbbts")]
+visible = false
+message = "Fill mug"
+duration = 1.5
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Tavern_00/Stool/Fill mug interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.930037, 0.36362)
+shape = SubResource("SphereShape3D_mkblb")
 
 [node name="Clearable corner rubble" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7123, 0, -3.58369)
@@ -486,19 +520,16 @@ transform = Transform3D(1, 0, 0, 0, 1.42978, 0, 0, 0, 0.879329, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Clearable corner rubble"]
 shape = SubResource("SphereShape3D_gbbts")
 
-[node name="Interactable" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("52_gbbts")]
+[node name="Clear corner rubble interactable" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("52_gbbts")]
 
-[node name="CollisionShape3D" parent="Tavern_00/Clearable corner rubble/Interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Clearable corner rubble/Clear corner rubble interactable" index="0"]
 shape = SubResource("SphereShape3D_yq3p1")
 
-[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
-nodes_to_clear = [NodePath("../.."), NodePath("../../SM_Prop_Stool_04 (11)2"), NodePath("../../SM_Prop_Stool_04 (11)3")]
+[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble/Clear corner rubble interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+nodes_to_clear = [NodePath("../..")]
 
 [node name="SM_Prop_Stool_04 (11)2" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("50_diw3x")]
 transform = Transform3D(0.146155, -0.655309, -0.741086, 0.988825, 0.0745278, 0.129112, -0.0293766, -0.751675, 0.658879, -1.39324, 0.16972, 0.557569)
-
-[node name="SM_Prop_Stool_04 (11)3" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("50_diw3x")]
-transform = Transform3D(-0.336926, 0.736899, -0.586055, 0.940631, 0.23623, -0.243739, -0.0411677, -0.633383, -0.772742, -1.9584, 0.199271, 0.675089)
 
 [node name="Barrel" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74167, -0.0589378, -3.00651)
@@ -512,18 +543,17 @@ transform = Transform3D(0.105675, 0.397152, 0.911648, 0.14921, 0.90007, -0.40940
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0609994, 0.405968, 0.138197)
 shape = SubResource("SphereShape3D_3i17g")
 
-[node name="Interactable" parent="Tavern_00/Barrel" instance=ExtResource("52_gbbts")]
+[node name="Pickup barrel interactable" parent="Tavern_00/Barrel" instance=ExtResource("52_gbbts")]
 message = "Pick up barrel"
 
-[node name="CollisionShape3D" parent="Tavern_00/Barrel/Interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Barrel/Pickup barrel interactable" index="0"]
 shape = SubResource("SphereShape3D_0jbij")
 
-[node name="ChangeParentEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+[node name="Parent barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
 child = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
 new_parent = NodePath("../../../../Player/Model/Armature/Skeleton/RightHandAttachment")
-keep_position = true
 
-[node name="ChangeTransformEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+[node name="Move barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
 node = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
 new_position = Vector3(-0.0910044, -0.0801092, 0.122002)
 change_position = true
@@ -533,17 +563,64 @@ new_scale = Vector3(0.5, 0.5, 0.5)
 change_scale = true
 tween_duration = 0.25
 
-[node name="AnimationEvent" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+[node name="Play player carrying animation" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
 animation_target = NodePath("../../../../Player")
 animation_name = "carrying"
 
-[node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Interactable" node_paths=PackedStringArray("nodes_to_clear")]
+[node name="Play old man barrel conversation" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+conversation_tree = NodePath("../../../../Old Man/Barrel setup")
+
+[node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("nodes_to_clear")]
 script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("../..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
 
+[node name="Place barrel interactable" parent="Tavern_00" instance=ExtResource("52_gbbts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02641, 0.669288, -4.37854)
+visible = false
+message = "Place barrel"
+duration = 1.5
+
+[node name="CollisionShape3D" parent="Tavern_00/Place barrel interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.368166, 0)
+
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel interactable" instance=ExtResource("24_6qbef")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 0, 0)
+
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel interactable/SM_Prop_Barrel_Dispenser_Small_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_7nka6")
+
+[node name="Change barrel parent to stool" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+child = NodePath("../../Barrel/SM_Prop_Barrel_Dispenser_Small_02")
+new_parent = NodePath("../../Stool")
+
+[node name="Move barrel to stool" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+node = NodePath("../../Barrel/SM_Prop_Barrel_Dispenser_Small_02")
+new_position = Vector3(0, 0.66, 0)
+change_position = true
+new_rotation = Vector3(0, -90, 0)
+change_rotation = true
+new_scale = Vector3(0.8, 0.8, 0.8)
+change_scale = true
+tween_duration = 1.0
+
+[node name="Play player RESET animation" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+animation_target = NodePath("../../../Player")
+animation_name = "RESET"
+
+[node name="Play old man mug conversation" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+conversation_tree = NodePath("../../../Old Man/Mug setup")
+
+[node name="Clear blueprint" type="Node3D" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("nodes_to_clear")]
+script = ExtResource("53_gbbts")
+nodes_to_clear = [NodePath("..")]
+metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
+
 [node name="Player" parent="." instance=ExtResource("56_3w4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77055, 0.0667084, 2.06968)
+
+[node name="RightHandAttachment" parent="Player/Model/Armature/Skeleton" index="28"]
+transform = Transform3D(-0.533822, -0.0989706, 0.839785, 0.752783, 0.396742, 0.525275, -0.385164, 0.912579, -0.137286, -0.260576, 1.0366, 0.221158)
 
 [node name="Old Man" parent="." node_paths=PackedStringArray("animation_player") groups=["animatables", "characters", "look_at_target", "look_at_targets"] instance=ExtResource("55_yq3p1")]
 transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.93521, -1.16116, -0.429306)
@@ -555,7 +632,7 @@ animation_player = NodePath("AnimationPlayer")
 [node name="Intro conversation" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
 events_before = [NodePath("Camera look at old man"), NodePath("Player motion off")]
 branches = [NodePath("start"), NodePath("happened"), NodePath("left")]
-events_after = [NodePath("Player motion on")]
+events_after = [NodePath("Player motion on"), NodePath("Camera look at nothing")]
 
 [node name="Camera look at old man" parent="Old Man/Intro conversation" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
 target = NodePath("../..")
@@ -571,34 +648,86 @@ animation_name = "looking"
 [node name="ConversationLeaf" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("events_before") instance=ExtResource("57_3w4ku")]
 speaker = ExtResource("63_5roai")
 events_before = [NodePath("../Animate old man looking")]
-speeches = Array[String](["Do my old eyes decieve me, or is that someone inside the rubble...?"])
+speeches = Array[String](["Do my old eyes fail me, or do I see someone moving in the rubble...?"])
 
-[node name="Old man head look at player" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("character_looking") instance=ExtResource("57_5roai")]
+[node name="Old man head look at player head" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("character_looking", "look_at_target") instance=ExtResource("57_5roai")]
 character_looking = NodePath("../../..")
+look_at_target = NodePath("../../../../Player/Model/Armature/Skeleton/Head")
 
 [node name="ConversationLeaf2" parent="Old Man/Intro conversation/start" node_paths=PackedStringArray("events_before") instance=ExtResource("57_3w4ku")]
 speaker = ExtResource("63_5roai")
-events_before = [NodePath("../Old man head look at player")]
-speeches = Array[String](["My word! Thank heavens you're not a ghost or a figment of my imagination.", "Though to come here, after [url=happened]all that happened[/url], you must be brave. I'm the [url=left]only one left...[/url]"])
+events_before = [NodePath("../Old man head look at player head")]
+speeches = Array[String](["Ah... so you're not a ghost! My word. To think someone would come here of their own volition.", "Pardon me, I realize I'm being rude. My name is Gorman. After [url=happened]what happened[/url], I think [url=left]I'm the only one left.[/url]"])
 
 [node name="happened" parent="Old Man/Intro conversation" instance=ExtResource("55_taapi")]
 
 [node name="ConversationLeaf" parent="Old Man/Intro conversation/happened" instance=ExtResource("57_3w4ku")]
 speaker = ExtResource("63_5roai")
-speeches = Array[String](["Ah, yes. Not surprising you'd know, as distant as this place is... I imagine word hardly carries back to civilized society.", "I'm not sure what to call it besides a massacre. An avoidable tragedy.	", "...pardon me, but did you happen to find any remaining ale in the rubble? My throat grows easily parched these days."])
+speeches = Array[String](["Ah yes... not surprising you wouldn't know, I suppose.", "It's been five years now. I suppose news of it hardly reached the homeland, either.", "Pardon me, but my throat's a bit parched; did you manage to find any surviving barrels of ale...?"])
 
 [node name="left" parent="Old Man/Intro conversation" instance=ExtResource("55_taapi")]
 
 [node name="ConversationLeaf" parent="Old Man/Intro conversation/left" instance=ExtResource("57_3w4ku")]
 speaker = ExtResource("63_5roai")
-speeches = Array[String](["Yes. It brings a tear to my eye, that I alone survived...", "So many good people. So many trying to make this world a better place, like your father...", "...pardon me, but did you happen to find any remaining ale in the rubble? My throat grows easily parched these days."])
+speeches = Array[String](["Oh, yes. What seems like a long time ago, this was a bustling frontier town. Not just a pile of burnt logs.", "I met many wonderful people, here at the edge of the world. Good people. Like your father...", "Pardon me, but my throat's a bit parched; did you manage to find any surviving barrels of ale...?"])
 
 [node name="Player motion on" parent="Old Man/Intro conversation" instance=ExtResource("62_4ubi3")]
 motion_active = true
 
+[node name="Camera look at nothing" parent="Old Man/Intro conversation" instance=ExtResource("61_e7i3n")]
+
+[node name="Barrel setup" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
+events_before = [NodePath("Camera look at old man"), NodePath("Player motion off")]
+branches = [NodePath("start")]
+events_after = [NodePath("Make barrel interactable visible"), NodePath("Player motion on"), NodePath("Camera look at none")]
+
+[node name="Camera look at old man" parent="Old Man/Barrel setup" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
+target = NodePath("../..")
+
+[node name="Player motion off" parent="Old Man/Barrel setup" instance=ExtResource("62_4ubi3")]
+
+[node name="start" parent="Old Man/Barrel setup" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Barrel setup/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+speeches = Array[String](["Ahh... truly the Gods smile on me this day.", "Set it aside: I'll give you my cup."])
+
+[node name="Make barrel interactable visible" parent="Old Man/Barrel setup" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../../Tavern_00/Place barrel interactable"): 0
+}
+
+[node name="Player motion on" parent="Old Man/Barrel setup" instance=ExtResource("62_4ubi3")]
+motion_active = true
+
+[node name="Camera look at none" parent="Old Man/Barrel setup" instance=ExtResource("61_e7i3n")]
+
+[node name="Mug setup" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
+events_before = [NodePath("Camera look at old man"), NodePath("Stop player motion")]
+branches = [NodePath("start")]
+events_after = [NodePath("Resume player motion"), NodePath("Camera look at none")]
+
+[node name="Camera look at old man" parent="Old Man/Mug setup" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
+target = NodePath("../..")
+
+[node name="Stop player motion" parent="Old Man/Mug setup" instance=ExtResource("62_4ubi3")]
+
+[node name="start" parent="Old Man/Mug setup" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Mug setup/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("63_5roai")
+speeches = Array[String](["Ah... I can almost smell it. Here, take my mug, will you?", "Fill it up to the brim. There's a good lad."])
+
+[node name="Resume player motion" parent="Old Man/Mug setup" instance=ExtResource("62_4ubi3")]
+motion_active = true
+
+[node name="Camera look at none" parent="Old Man/Mug setup" instance=ExtResource("61_e7i3n")]
+
 [editable path="Tavern_00/Clearable table/Interactable"]
-[editable path="Tavern_00/Clearable center rubble/Interactable"]
-[editable path="Tavern_00/Clearable corner rubble/Interactable"]
-[editable path="Tavern_00/Barrel/Interactable"]
+[editable path="Tavern_00/Clearable center rubble/Clear center rubble interactable"]
+[editable path="Tavern_00/Clearable corner rubble/Clear corner rubble interactable"]
+[editable path="Tavern_00/Barrel/Pickup barrel interactable"]
+[editable path="Tavern_00/Place barrel interactable"]
+[editable path="Tavern_00/Place barrel interactable/SM_Prop_Barrel_Dispenser_Small_01"]
 [editable path="Player"]
 [editable path="Old Man"]

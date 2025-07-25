@@ -16,12 +16,16 @@ var events : Array[Event] :
 
 ## Listens to entry signal. If the player enters, sends to Interaction.
 func _on_body_entered(body: Node) -> void:
+	if !is_visible_in_tree():
+		return
 	if body is Player:
 		Interaction.add_interactable(self)
 
 
 ## Listens to exit signal. If the player exits, sends to Interaction.
 func _on_body_exited(body: Node) -> void:
+	if !is_visible_in_tree():
+		return
 	if body is Player:
 		Interaction.erase_interactable(self)
 

@@ -10,5 +10,5 @@ func take_effect():
 	if !super():
 		return
 	
-	print("Making player camera look at target " + target.name)
+	print("Making player camera look at target " + (target.name if target else "none"))
 	Globals.get_player().look_at_target = target

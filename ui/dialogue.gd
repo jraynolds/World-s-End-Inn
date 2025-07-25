@@ -10,10 +10,12 @@ var tree : ConversationTree : ## The current ConversationTree.
 	set(val):
 		tree = val
 		if val:
+			Interaction.suppressed = true
 			tree.begin()
 			branch = tree.get_starting_branch()
 			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
 		else :
+			Interaction.suppressed = false
 			branch = null
 			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
 		visible = val != null
