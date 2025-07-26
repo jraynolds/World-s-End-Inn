@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://6i0cfagi1opp"]
 
-[ext_resource type="Script" uid="uid://cbdhh2es5hos6" path="res://assets/characters/char_visual.gd" id="1_csb7a"]
+[ext_resource type="Script" uid="uid://cbdhh2es5hos6" path="res://assets/characters/model.gd" id="1_csb7a"]
 [ext_resource type="ArrayMesh" uid="uid://bsdvcqlw725h" path="res://assets/characters/meshes/Modular heroes_ArmLowerLeft_Female_14.res" id="15_x3cae"]
 [ext_resource type="ArrayMesh" uid="uid://bj4uit43ylc6b" path="res://assets/characters/meshes/Modular heroes_ArmLowerRight_Female_14.res" id="53_66dfj"]
 [ext_resource type="ArrayMesh" uid="uid://cln4q6bxqdjsi" path="res://assets/characters/meshes/Modular heroes_ArmUpperLeft_Female_20.res" id="97_c242e"]
@@ -182,7 +182,7 @@ bind/53/name = &"Hips_Attachment"
 bind/53/bone = -1
 bind/53/pose = Transform3D(1.04639e-10, 1, 1.37091e-06, 1, 7.13733e-09, -1.33846e-07, 5.59266e-09, 1.3411e-06, -1, -0.876276, -6.2209e-09, -1.2254e-06)
 
-[node name="Visual" type="Node3D"]
+[node name="Model" type="Node3D"]
 script = ExtResource("1_csb7a")
 arm_lower_left = 15
 arm_lower_right = 15
@@ -680,3 +680,17 @@ skin = SubResource("Skin_4sv2c")
 [node name="Torso" type="MeshInstance3D" parent="Armature/Skeleton"]
 mesh = ExtResource("699_c0xht")
 skin = SubResource("Skin_4sv2c")
+
+[node name="LeftHandSlot" type="BoneAttachment3D" parent="Armature/Skeleton"]
+transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.799633, 1.36094, -0.0341736)
+bone_name = "LeftHand"
+bone_idx = 13
+
+[node name="RightHandSlot" type="BoneAttachment3D" parent="Armature/Skeleton"]
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -0.799632, 1.36094, -0.0341739)
+bone_name = "RightHand"
+bone_idx = 27
+
+[node name="HeadLookAt" type="LookAtModifier3D" parent="Armature/Skeleton"]
+bone_name = "Head"
+bone = 6

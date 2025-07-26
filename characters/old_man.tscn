@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwcjolxderucp"]
+
+[ext_resource type="PackedScene" uid="uid://dettpqe02epxo" path="res://assets/characters/character.tscn" id="1_88tej"]
+[ext_resource type="Resource" uid="uid://m4y5k3x28xb8" path="res://data/characters/old_man.tres" id="2_v11fk"]
+[ext_resource type="Material" uid="uid://ukrgthckfpgi" path="res://assets/characters/Old man hero material.tres" id="3_ebn4h"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebn4h"]
+animation = &"old_man_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v11fk"]
+animation = &"looking"
+
+[sub_resource type="Curve" id="Curve_0pn1i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_nfchs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_8qf3u"]
+fadein_time = 1.0
+fadein_curve = SubResource("Curve_0pn1i")
+fadeout_time = 1.5
+fadeout_curve = SubResource("Curve_nfchs")
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dacp3"]
+graph_offset = Vector2(-546.554, 179.968)
+nodes/idle/node = SubResource("AnimationNodeAnimation_ebn4h")
+nodes/idle/position = Vector2(-100, 140)
+nodes/looking/node = SubResource("AnimationNodeAnimation_v11fk")
+nodes/looking/position = Vector2(-280, 340)
+nodes/looking_one_shot/node = SubResource("AnimationNodeOneShot_8qf3u")
+nodes/looking_one_shot/position = Vector2(160, 280)
+nodes/output/position = Vector2(380, 160)
+node_connections = [&"looking_one_shot", 0, &"idle", &"looking_one_shot", 1, &"looking", &"output", 0, &"looking_one_shot"]
+
+[node name="Old Man" node_paths=PackedStringArray("animation_tree") instance=ExtResource("1_88tej")]
+resource = ExtResource("2_v11fk")
+animation_tree = NodePath("AnimationTree")
+
+[node name="Skeleton" parent="Model/Armature" index="0"]
+bones/1/rotation = Quaternion(0.151066, -0.0206754, 0.0191022, 0.988123)
+bones/2/rotation = Quaternion(0.0816913, 0.00514507, 0.00646725, 0.996624)
+bones/3/rotation = Quaternion(0.0591538, 0.00756437, 0.0115836, 0.998153)
+bones/4/rotation = Quaternion(0.0591722, 0.00783137, 0.0114042, 0.998152)
+bones/5/rotation = Quaternion(-0.0853553, 0.00507561, 0.0213166, 0.99611)
+bones/6/rotation = Quaternion(-0.342272, 0.0395296, -0.043789, 0.937747)
+bones/10/rotation = Quaternion(0.513635, 0.472523, 0.536451, -0.474469)
+bones/11/rotation = Quaternion(0.304606, 0.828594, -0.467231, 0.0484022)
+bones/12/rotation = Quaternion(0.588215, -0.392432, 0.588215, 0.392432)
+bones/13/rotation = Quaternion(-0.138326, 0.777572, -0.129027, 0.599667)
+bones/14/rotation = Quaternion(0.125784, 0.0372251, 0.0598142, 0.989553)
+bones/15/rotation = Quaternion(0.0416531, 0.0123748, 0.00373387, 0.999049)
+bones/16/rotation = Quaternion(0.124651, -1.19209e-07, -0.0150431, 0.992087)
+bones/17/rotation = Quaternion(0.0948585, -1.19209e-07, -0.0114475, 0.995425)
+bones/18/rotation = Quaternion(0.0474835, -4.47035e-08, -0.00573042, 0.998856)
+bones/19/rotation = Quaternion(0.124651, -1.63913e-07, -0.0150431, 0.992087)
+bones/20/rotation = Quaternion(0.0948583, 0, -0.0114475, 0.995425)
+bones/21/rotation = Quaternion(0.0474835, -4.47035e-08, -0.00573042, 0.998856)
+bones/24/rotation = Quaternion(0.570145, -0.435088, -0.495766, -0.489744)
+bones/25/rotation = Quaternion(-0.308718, 0.850377, -0.425377, -0.0246323)
+bones/26/rotation = Quaternion(0.603349, 0.368741, -0.603349, 0.368741)
+bones/27/rotation = Quaternion(-0.189408, -0.705483, 0.19657, 0.654047)
+bones/28/rotation = Quaternion(0.158329, -0.0865172, -0.0563635, 0.981972)
+bones/29/rotation = Quaternion(0.0407584, -0.0275787, 0.00213355, 0.998786)
+bones/30/rotation = Quaternion(0.130784, -1.3411e-07, 0.0159383, 0.991283)
+bones/31/rotation = Quaternion(0.228947, -4.47035e-08, 0.0279011, 0.973039)
+bones/32/rotation = Quaternion(0.115253, -4.47035e-08, 0.0140455, 0.993237)
+bones/33/rotation = Quaternion(0.130784, -1.3411e-07, 0.0159383, 0.991283)
+bones/34/rotation = Quaternion(0.228947, -4.47035e-08, 0.0279011, 0.973039)
+bones/35/rotation = Quaternion(0.115253, -4.47035e-08, 0.0140455, 0.993237)
+bones/43/rotation = Quaternion(-0.218027, 0.359497, 0.90723, 0.0126517)
+bones/44/rotation = Quaternion(0.0876739, 0.963327, -0.244281, -0.0681227)
+bones/45/rotation = Quaternion(0.0320965, 0.686875, -0.724468, -0.0481507)
+bones/46/rotation = Quaternion(0, 1, 0, 0)
+bones/48/rotation = Quaternion(0.112052, 0.356172, 0.927047, -0.0342112)
+bones/49/rotation = Quaternion(-0.0263455, 0.959577, -0.269155, 0.0779396)
+bones/50/rotation = Quaternion(0.0104547, 0.675916, -0.732231, 0.0828642)
+bones/51/rotation = Quaternion(8.03424e-08, 0.999999, 0.00159764, -3.29272e-08)
+
+[node name="ArmLowerLeft" parent="Model/Armature/Skeleton" index="0"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="ArmLowerRight" parent="Model/Armature/Skeleton" index="1"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="ArmUpperLeft" parent="Model/Armature/Skeleton" index="2"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="ArmUpperRight" parent="Model/Armature/Skeleton" index="3"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="Eyebrow" parent="Model/Armature/Skeleton" index="8"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="FacialHair" parent="Model/Armature/Skeleton" index="9"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="HandLeft" parent="Model/Armature/Skeleton" index="11"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="HandRight" parent="Model/Armature/Skeleton" index="12"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="Head" parent="Model/Armature/Skeleton" index="13"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="HeadCoverings_No_Hair" parent="Model/Armature/Skeleton" index="17"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="Hips" parent="Model/Armature/Skeleton" index="19"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="LegLeft" parent="Model/Armature/Skeleton" index="23"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="LegRight" parent="Model/Armature/Skeleton" index="24"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="Torso" parent="Model/Armature/Skeleton" index="27"]
+surface_material_override/0 = ExtResource("3_ebn4h")
+
+[node name="LeftHandSlot" parent="Model/Armature/Skeleton" index="28"]
+transform = Transform3D(0.569739, -0.405396, -0.714879, -0.820708, -0.235303, -0.520645, 0.0428537, 0.883338, -0.466773, 0.106275, 1.04729, 0.323015)
+
+[node name="RightHandSlot" parent="Model/Armature/Skeleton" index="29"]
+transform = Transform3D(0.401517, 0.300151, 0.865271, 0.901081, -0.298462, -0.314602, 0.163822, 0.905997, -0.390297, -0.1766, 1.04115, 0.294986)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+root_node = NodePath("../Model/Armature")
+tree_root = SubResource("AnimationNodeBlendTree_dacp3")
+anim_player = NodePath("../AnimationPlayer")
+parameters/looking_one_shot/active = false
+parameters/looking_one_shot/internal_active = false
+parameters/looking_one_shot/request = 0
+
+[editable path="Model"]

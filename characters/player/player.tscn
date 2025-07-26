@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b53ffhk1l80mu" path="res://characters/player/player.gd" id="1_exd8k"]
 [ext_resource type="Script" uid="uid://gsfykgq3787n" path="res://components/player_cam.gd" id="2_5dc8e"]
 [ext_resource type="ArrayMesh" uid="uid://cln4q6bxqdjsi" path="res://assets/characters/meshes/Modular heroes_ArmUpperLeft_Female_20.res" id="4_c6leb"]
-[ext_resource type="Script" uid="uid://cbdhh2es5hos6" path="res://assets/characters/char_visual.gd" id="4_d2agh"]
+[ext_resource type="Script" uid="uid://cbdhh2es5hos6" path="res://assets/characters/model.gd" id="4_d2agh"]
 [ext_resource type="ArrayMesh" uid="uid://byinypvf4sx0w" path="res://assets/characters/meshes/Modular heroes_ArmUpperRight_Female_20.res" id="5_dirf7"]
 [ext_resource type="ArrayMesh" uid="uid://ddgdv8u2hwrbu" path="res://assets/characters/meshes/Modular heroes_ArmLowerLeft_Male_18.res" id="5_fpo3a"]
 [ext_resource type="Animation" uid="uid://x8rlouf7msyt" path="res://assets/animations/carrying.res" id="6_idpv6"]

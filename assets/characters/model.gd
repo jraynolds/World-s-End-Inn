@@ -7,6 +7,7 @@ const MESH_PREFIX: String = 'visuals_'
 const MESH_SUBDIR: String = 'meshes'
 
 @export var randomize: bool = false : set = _set_randomize
+@export var override_material : Material = null : set = _set_override_material
 @export_group("Body Parts")
 @export_range(0, 38) var arm_lower_left: int = 0: set = _set_arm_lower_left
 @export_range(0, 38) var arm_lower_right: int = 0: set = _set_arm_lower_right
@@ -272,3 +273,9 @@ func _set_torso(new_value: int) -> void:
 	torso = new_value
 	if is_inside_tree():
 		set_mesh(%Skeleton/Torso, "Torso", new_value)
+
+func _set_override_material(material: Material) -> void:
+	for child in %Skeleton.get_children():
+		var mesh = child as MeshInstance3D
+		if mesh:
+			mesh.set_surface_override_material(0, material)
