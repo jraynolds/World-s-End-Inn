@@ -29,7 +29,7 @@ func take_effect():
 			print("Instantly changing node " + node.name + "scale to " + str(new_scale))
 			node.scale = new_scale
 	else :
-		var tween = get_tree().create_tween().set_parallel()
+		var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		if change_position:
 			tween.tween_property(node, "position", new_position, tween_duration)
 			print("Slowly changing node " + node.name + "position to " + str(new_position))
