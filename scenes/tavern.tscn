@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://dfy85vubulnao"]
+[gd_scene load_steps=103 format=3 uid="uid://dfy85vubulnao"]
 
 [ext_resource type="PackedScene" uid="uid://d3jlqb58xtjm4" path="res://assets/buildings/Preset_Tavern_01_binary.fbx" id="1_ty6t4"]
 [ext_resource type="PackedScene" uid="uid://n5nhi2xlpxnc" path="res://assets/buildings/pieces/SM_Bld_House_Base_Corner_01 (13).fbx" id="2_f6k6c"]
@@ -71,6 +71,9 @@
 [ext_resource type="Animation" uid="uid://dgrtjbve7jfge" path="res://assets/animations/looking.res" id="63_e3s4h"]
 [ext_resource type="Animation" uid="uid://dbb3ggidwhlmy" path="res://assets/animations/old_man_idle.res" id="64_17grw"]
 [ext_resource type="Script" uid="uid://cwj473iue1388" path="res://data/characters/character_resource.gd" id="70_6qbef"]
+[ext_resource type="Resource" uid="uid://m4y5k3x28xb8" path="res://data/characters/old_man.tres" id="72_e3s4h"]
+[ext_resource type="PackedScene" uid="uid://clqa73em5hxoj" path="res://components/events/show_sprite_event.tscn" id="73_a3qre"]
+[ext_resource type="Texture2D" uid="uid://cvkk4hfxwjkkb" path="res://assets/sprites/Dad's letter.png" id="74_43vwf"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7nka6"]
 top_radius = 0.1
@@ -135,6 +138,12 @@ radius = 0.513885
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0jbij"]
 radius = 0.874635
+
+[sub_resource type="BoxMesh" id="BoxMesh_a3qre"]
+size = Vector3(1, 1, 1.48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_43vwf"]
+size = Vector3(1, 1, 1.48)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7nka6"]
 render_priority = 0
@@ -461,6 +470,13 @@ title = "Old Man"
 idle_animation_name = "old_man_idle"
 metadata/_custom_type_script = "uid://cwj473iue1388"
 
+[sub_resource type="BoxMesh" id="BoxMesh_e3s4h"]
+size = Vector3(0.21, 0.375, 0.005)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_44522"]
+radius = 0.05
+height = 0.4
+
 [node name="Tavern" type="Node3D"]
 
 [node name="Presets" type="Node3D" parent="."]
@@ -777,6 +793,7 @@ shape = SubResource("BoxShape3D_xligg")
 
 [node name="Clearable table" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43542, 0.277421, -1.2477)
+visible = false
 collision_mask = 2
 gravity_scale = 0.0
 
@@ -787,16 +804,17 @@ transform = Transform3D(0.785279, -0.122482, -0.606906, -0.493193, 0.468845, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.407177)
 shape = SubResource("CylinderShape3D_u4jmd")
 
-[node name="Interactable" parent="Tavern_00/Clearable table" instance=ExtResource("52_gbbts")]
+[node name="Clear table" parent="Tavern_00/Clearable table" instance=ExtResource("52_gbbts")]
 
-[node name="CollisionShape3D" parent="Tavern_00/Clearable table/Interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Clearable table/Clear table" index="0"]
 shape = SubResource("SphereShape3D_gjunt")
 
-[node name="Clear table" parent="Tavern_00/Clearable table/Interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear table" parent="Tavern_00/Clearable table/Clear table" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
 [node name="Clearable center rubble" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18649, -0.00495589, -0.951408)
+visible = false
 collision_mask = 2
 gravity_scale = 0.0
 
@@ -805,20 +823,20 @@ gravity_scale = 0.0
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Tavern_00/Clearable center rubble"]
 shape = SubResource("CapsuleShape3D_3i17g")
 
-[node name="Clear center rubble interactable" parent="Tavern_00/Clearable center rubble" instance=ExtResource("52_gbbts")]
+[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble" instance=ExtResource("52_gbbts")]
 
-[node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Clearable center rubble/Clear center rubble" index="0"]
 shape = SubResource("SphereShape3D_u4jmd")
 
-[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear center rubble" parent="Tavern_00/Clearable center rubble/Clear center rubble" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
-[node name="Make old man visible" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+[node name="Make old man visible" parent="Tavern_00/Clearable center rubble/Clear center rubble" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
 nodes_to_change_visibility = {
 NodePath("../../../../Old Man"): 0
 }
 
-[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Clear center rubble interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+[node name="Speech with old man" parent="Tavern_00/Clearable center rubble/Clear center rubble" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
 conversation_tree = NodePath("../../../../Old Man/Intro conversation")
 
 [node name="Stool" type="RigidBody3D" parent="Tavern_00"]
@@ -831,17 +849,28 @@ gravity_scale = 0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Stool"]
 shape = SubResource("CapsuleShape3D_4ubi3")
 
-[node name="Fill mug interactable" parent="Tavern_00/Stool" instance=ExtResource("52_gbbts")]
+[node name="Fill mug" parent="Tavern_00/Stool" instance=ExtResource("52_gbbts")]
 visible = false
 message = "Fill mug"
 duration = 1.5
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Tavern_00/Stool/Fill mug interactable"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Tavern_00/Stool/Fill mug"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.930037, 0.36362)
 shape = SubResource("SphereShape3D_mkblb")
 
+[node name="Hide self" parent="Tavern_00/Stool/Fill mug" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath(".."): 1
+}
+
+[node name="Show receive mug interactable" parent="Tavern_00/Stool/Fill mug" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../../../Old Man/Receive mug"): 0
+}
+
 [node name="Clearable corner rubble" type="RigidBody3D" parent="Tavern_00"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7123, 0, -3.58369)
+visible = false
 collision_mask = 2
 gravity_scale = 0.0
 
@@ -851,12 +880,12 @@ transform = Transform3D(1, 0, 0, 0, 1.42978, 0, 0, 0, 0.879329, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Clearable corner rubble"]
 shape = SubResource("SphereShape3D_gbbts")
 
-[node name="Clear corner rubble interactable" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("52_gbbts")]
+[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("52_gbbts")]
 
-[node name="CollisionShape3D" parent="Tavern_00/Clearable corner rubble/Clear corner rubble interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Clearable corner rubble/Clear corner rubble" index="0"]
 shape = SubResource("SphereShape3D_yq3p1")
 
-[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble/Clear corner rubble interactable" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+[node name="Clear corner rubble" parent="Tavern_00/Clearable corner rubble/Clear corner rubble" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 nodes_to_clear = [NodePath("../..")]
 
 [node name="SM_Prop_Stool_04 (11)2" parent="Tavern_00/Clearable corner rubble" instance=ExtResource("50_diw3x")]
@@ -874,17 +903,17 @@ transform = Transform3D(0.105675, 0.397152, 0.911648, 0.14921, 0.90007, -0.40940
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0609994, 0.405968, 0.138197)
 shape = SubResource("SphereShape3D_3i17g")
 
-[node name="Pickup barrel interactable" parent="Tavern_00/Barrel" instance=ExtResource("52_gbbts")]
+[node name="Pickup barrel" parent="Tavern_00/Barrel" instance=ExtResource("52_gbbts")]
 message = "Pick up barrel"
 
-[node name="CollisionShape3D" parent="Tavern_00/Barrel/Pickup barrel interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Barrel/Pickup barrel" index="0"]
 shape = SubResource("SphereShape3D_0jbij")
 
-[node name="Parent barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+[node name="Parent barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
 child = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
 new_parent = NodePath("../../../../Player/Model/Armature/Skeleton/RightHandAttachment")
 
-[node name="Move barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+[node name="Move barrel to player hand" parent="Tavern_00/Barrel/Pickup barrel" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
 node = NodePath("../../SM_Prop_Barrel_Dispenser_Small_02")
 new_position = Vector3(-0.0910044, -0.0801092, 0.122002)
 change_position = true
@@ -894,38 +923,57 @@ new_scale = Vector3(0.5, 0.5, 0.5)
 change_scale = true
 tween_duration = 0.25
 
-[node name="Play player carrying animation" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+[node name="Play player carrying animation" parent="Tavern_00/Barrel/Pickup barrel" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
 animation_target = NodePath("../../../../Player")
 animation_name = "carrying"
 
-[node name="Play old man barrel conversation" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+[node name="Play old man barrel conversation" parent="Tavern_00/Barrel/Pickup barrel" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
 conversation_tree = NodePath("../../../../Old Man/Barrel setup")
 
-[node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Pickup barrel interactable" node_paths=PackedStringArray("nodes_to_clear")]
+[node name="Clear barrel" type="Node3D" parent="Tavern_00/Barrel/Pickup barrel" node_paths=PackedStringArray("nodes_to_clear")]
 script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("../..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
 
-[node name="Place barrel interactable" parent="Tavern_00" instance=ExtResource("52_gbbts")]
+[node name="Cellar door" type="RigidBody3D" parent="Tavern_00"]
+transform = Transform3D(1, 0, 0, 0, 0.880262, 0.474488, 0, -0.474488, 0.880262, -1.96554, -0.943573, -5.75629)
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tavern_00/Cellar door"]
+mesh = SubResource("BoxMesh_a3qre")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern_00/Cellar door"]
+shape = SubResource("BoxShape3D_43vwf")
+
+[node name="Open cellar door" parent="Tavern_00/Cellar door" instance=ExtResource("52_gbbts")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+message = "Open cellar door"
+duration = 1.0
+
+[node name="CollisionShape3D" parent="Tavern_00/Cellar door/Open cellar door" index="0"]
+transform = Transform3D(1, 0, -1.49012e-08, 3.55271e-15, 1, 0, 1.49012e-08, 0, 1, -0.0338761, 0.354213, -0.390473)
+
+[node name="Place barrel" parent="Tavern_00" instance=ExtResource("52_gbbts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02641, 0.669288, -4.37854)
 visible = false
 message = "Place barrel"
 duration = 1.5
 
-[node name="CollisionShape3D" parent="Tavern_00/Place barrel interactable" index="0"]
+[node name="CollisionShape3D" parent="Tavern_00/Place barrel" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.368166, 0)
 
-[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel interactable" instance=ExtResource("24_6qbef")]
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel" instance=ExtResource("24_6qbef")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 0, 0)
 
-[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel interactable/SM_Prop_Barrel_Dispenser_Small_01" index="0"]
+[node name="SM_Prop_Barrel_Dispenser_Small_01" parent="Tavern_00/Place barrel/SM_Prop_Barrel_Dispenser_Small_01" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_7nka6")
 
-[node name="Change barrel parent to stool" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+[node name="Change barrel parent to stool" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
 child = NodePath("../../Barrel/SM_Prop_Barrel_Dispenser_Small_02")
 new_parent = NodePath("../../Stool")
 
-[node name="Move barrel to stool" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+[node name="Move barrel to stool" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
 node = NodePath("../../Barrel/SM_Prop_Barrel_Dispenser_Small_02")
 new_position = Vector3(0, 0.66, 0)
 change_position = true
@@ -935,19 +983,19 @@ new_scale = Vector3(0.8, 0.8, 0.8)
 change_scale = true
 tween_duration = 1.0
 
-[node name="Play player RESET animation" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
+[node name="Play player RESET animation" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("animation_target") instance=ExtResource("55_ssnxt")]
 animation_target = NodePath("../../../Player")
 animation_name = "RESET"
 
-[node name="Play old man mug conversation" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+[node name="Play old man mug conversation" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
 conversation_tree = NodePath("../../../Old Man/Mug setup")
 
-[node name="Show old man mug interact" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+[node name="Show old man mug interact" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
 nodes_to_change_visibility = {
 NodePath("../../../Old Man/Take mug"): 0
 }
 
-[node name="Clear blueprint" type="Node3D" parent="Tavern_00/Place barrel interactable" node_paths=PackedStringArray("nodes_to_clear")]
+[node name="Clear blueprint" type="Node3D" parent="Tavern_00/Place barrel" node_paths=PackedStringArray("nodes_to_clear")]
 script = ExtResource("53_gbbts")
 nodes_to_clear = [NodePath("..")]
 metadata/_custom_type_script = "uid://bxk6xlk2d5bm1"
@@ -959,20 +1007,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77055, 0.0667084, 2.06968)
 transform = Transform3D(-0.533822, -0.0989706, 0.839785, 0.752783, 0.396742, 0.525275, -0.385164, 0.912579, -0.137286, -0.260576, 1.0366, 0.221158)
 
 [node name="Old Man" parent="." instance=ExtResource("61_7nka6")]
-transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.93521, -1.16116, -0.429306)
-visible = false
+transform = Transform3D(-0.0797813, 0, 0.996812, 0, 1, 0, -0.996812, 0, -0.0797813, -6.57768, -0.907893, -0.429306)
 
 [node name="Skeleton" parent="Old Man/Model/Armature" index="0"]
-bones/1/rotation = Quaternion(0.143748, -0.0202563, 0.00992259, 0.989357)
-bones/2/rotation = Quaternion(0.0846824, 0.00739708, -0.00821583, 0.996347)
-bones/3/rotation = Quaternion(0.0620079, 0.00960782, 0.0013023, 0.998029)
-bones/4/rotation = Quaternion(0.0620437, 0.00945388, 0.00111334, 0.998028)
-bones/5/rotation = Quaternion(-0.0818565, 0.00355987, 0.0202773, 0.996432)
-bones/6/rotation = Quaternion(-0.348579, 0.0309934, -0.0281292, 0.936344)
-bones/10/rotation = Quaternion(0.515244, 0.467961, 0.545477, -0.466895)
-bones/11/rotation = Quaternion(0.320784, 0.840612, -0.432335, 0.0596366)
-bones/12/rotation = Quaternion(0.581936, -0.401684, 0.581936, 0.401684)
-bones/13/rotation = Quaternion(-0.150533, 0.782653, -0.0937144, 0.596668)
+bones/1/rotation = Quaternion(0.14745, -0.0180974, 0.00507668, 0.988891)
+bones/2/rotation = Quaternion(0.0800912, 0.0105742, -0.0130702, 0.996646)
+bones/3/rotation = Quaternion(0.0587217, 0.0120069, -0.00246624, 0.998199)
+bones/4/rotation = Quaternion(0.0585965, 0.0119494, -0.00265525, 0.998207)
+bones/5/rotation = Quaternion(-0.0860627, 0.000691931, 0.0252332, 0.99597)
+bones/6/rotation = Quaternion(-0.355318, 0.0179167, -0.034041, 0.933954)
+bones/10/rotation = Quaternion(0.502055, 0.482706, 0.533696, -0.479692)
+bones/11/rotation = Quaternion(0.315889, 0.827747, -0.459446, 0.0629122)
+bones/12/rotation = Quaternion(0.580935, -0.403131, 0.580935, 0.403131)
+bones/13/rotation = Quaternion(-0.148242, 0.777421, -0.103991, 0.602351)
 bones/14/rotation = Quaternion(0.125784, 0.0372251, 0.0598142, 0.989553)
 bones/15/rotation = Quaternion(0.0416531, 0.0123748, 0.00373387, 0.999049)
 bones/16/rotation = Quaternion(0.124651, -1.19209e-07, -0.0150431, 0.992087)
@@ -981,10 +1028,10 @@ bones/18/rotation = Quaternion(0.0474835, -4.47035e-08, -0.00573042, 0.998856)
 bones/19/rotation = Quaternion(0.124651, -1.63913e-07, -0.0150431, 0.992087)
 bones/20/rotation = Quaternion(0.0948583, 0, -0.0114475, 0.995425)
 bones/21/rotation = Quaternion(0.0474835, -4.47035e-08, -0.00573042, 0.998856)
-bones/24/rotation = Quaternion(0.5469, -0.458366, -0.484937, -0.505605)
-bones/25/rotation = Quaternion(-0.293363, 0.82767, -0.477763, -0.0253596)
-bones/26/rotation = Quaternion(0.604777, 0.366394, -0.604777, 0.366394)
-bones/27/rotation = Quaternion(-0.18752, -0.714102, 0.212832, 0.639998)
+bones/24/rotation = Quaternion(0.547836, -0.458941, -0.481074, -0.507757)
+bones/25/rotation = Quaternion(-0.291704, 0.830852, -0.473745, -0.0126003)
+bones/26/rotation = Quaternion(0.60469, 0.366539, -0.60469, 0.366538)
+bones/27/rotation = Quaternion(-0.195658, -0.723433, 0.203576, 0.630015)
 bones/28/rotation = Quaternion(0.158329, -0.0865172, -0.0563635, 0.981972)
 bones/29/rotation = Quaternion(0.0407584, -0.0275787, 0.00213355, 0.998786)
 bones/30/rotation = Quaternion(0.130784, -1.3411e-07, 0.0159383, 0.991283)
@@ -993,19 +1040,19 @@ bones/32/rotation = Quaternion(0.115253, -4.47035e-08, 0.0140455, 0.993237)
 bones/33/rotation = Quaternion(0.130784, -1.3411e-07, 0.0159383, 0.991283)
 bones/34/rotation = Quaternion(0.228947, -4.47035e-08, 0.0279011, 0.973039)
 bones/35/rotation = Quaternion(0.115253, -4.47035e-08, 0.0140455, 0.993237)
-bones/43/rotation = Quaternion(-0.220566, 0.352385, 0.90947, 0.00629815)
-bones/44/rotation = Quaternion(0.0901217, 0.964442, -0.239184, -0.0672347)
-bones/45/rotation = Quaternion(0.0328043, 0.692157, -0.719313, -0.0492982)
-bones/48/rotation = Quaternion(0.12466, 0.358422, 0.924442, -0.0374186)
-bones/49/rotation = Quaternion(-0.0320963, 0.956965, -0.278214, 0.076054)
-bones/50/rotation = Quaternion(0.000103842, 0.674671, -0.734352, 0.0744804)
+bones/43/rotation = Quaternion(-0.219494, 0.347252, 0.911696, 0.00696807)
+bones/44/rotation = Quaternion(0.0878001, 0.966965, -0.229266, -0.0686111)
+bones/45/rotation = Quaternion(0.0346647, 0.695503, -0.715585, -0.054883)
+bones/48/rotation = Quaternion(0.123516, 0.360042, 0.923939, -0.0380777)
+bones/49/rotation = Quaternion(-0.0304369, 0.956429, -0.280774, 0.0740522)
+bones/50/rotation = Quaternion(0.00177838, 0.670277, -0.738527, 0.0728289)
 bones/51/rotation = Quaternion(8.03424e-08, 0.999999, 0.00159764, -3.29272e-08)
 
 [node name="LeftHandSlot" parent="Old Man/Model/Armature/Skeleton" index="28"]
-transform = Transform3D(0.530052, -0.354784, -0.770177, -0.845026, -0.14545, -0.514562, 0.070536, 0.923565, -0.376898, 0.12885, 1.03416, 0.321018)
+transform = Transform3D(0.501543, -0.339901, -0.795564, -0.864344, -0.157622, -0.477561, 0.0369251, 0.927158, -0.372845, 0.146107, 1.03699, 0.325184)
 
 [node name="RightHandSlot" parent="Old Man/Model/Armature/Skeleton" index="29"]
-transform = Transform3D(0.47184, 0.32893, 0.818029, 0.862908, -0.362738, -0.351869, 0.18099, 0.87191, -0.45499, -0.150241, 1.05398, 0.28999)
+transform = Transform3D(0.527568, 0.330083, 0.782762, 0.835687, -0.367212, -0.408389, 0.152638, 0.869598, -0.469576, -0.133493, 1.0591, 0.296351)
 
 [node name="AnimationPlayer" parent="Old Man" index="2"]
 libraries = {
@@ -1077,7 +1124,7 @@ speeches = Array[String](["Ahh... truly the Gods smile on me this day.", "Set it
 
 [node name="Make barrel interactable visible" parent="Old Man/Barrel setup" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
 nodes_to_change_visibility = {
-NodePath("../../../Tavern_00/Place barrel interactable"): 0
+NodePath("../../../Tavern_00/Place barrel"): 0
 }
 
 [node name="Player motion on" parent="Old Man/Barrel setup" instance=ExtResource("62_4ubi3")]
@@ -1088,7 +1135,7 @@ motion_active = true
 [node name="Mug setup" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
 events_before = [NodePath("Camera look at old man"), NodePath("Stop player motion")]
 branches = [NodePath("start")]
-events_after = [NodePath("Resume player motion"), NodePath("Camera look at none")]
+events_after = [NodePath("Show mug"), NodePath("Resume player motion"), NodePath("Camera look at none")]
 
 [node name="Camera look at old man" parent="Old Man/Mug setup" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
 target = NodePath("../..")
@@ -1100,6 +1147,11 @@ target = NodePath("../..")
 [node name="ConversationLeaf" parent="Old Man/Mug setup/start" instance=ExtResource("57_3w4ku")]
 speaker = SubResource("Resource_e3s4h")
 speeches = Array[String](["Ah... I can almost smell it. Here, take my mug, will you?", "Fill it up to the brim. There's a good lad."])
+
+[node name="Show mug" parent="Old Man/Mug setup" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../Mug"): 0
+}
 
 [node name="Resume player motion" parent="Old Man/Mug setup" instance=ExtResource("62_4ubi3")]
 motion_active = true
@@ -1116,7 +1168,6 @@ duration = 1.0
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -0.0345035, 1.63701, 0.431097)
 
 [node name="Parent mug to player hand" parent="Old Man/Take mug" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
-visible = false
 child = NodePath("../../Mug")
 new_parent = NodePath("../../../Player/Model/Armature/Skeleton/RightHandAttachment")
 
@@ -1134,13 +1185,18 @@ tween_duration = 0.25
 animation_target = NodePath("../../../Player")
 animation_name = "carrying"
 
+[node name="Show fill mug interactable" parent="Old Man/Take mug" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+nodes_to_change_visibility = {
+NodePath("../../../Tavern_00/Stool/Fill mug"): 0
+}
+
 [node name="Clear self" parent="Old Man/Take mug" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 nodes_to_clear = [NodePath("..")]
 
 [node name="Receive mug" parent="Old Man" instance=ExtResource("52_gbbts")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
-visible = false
 message = "Give mug"
 duration = 1.0
 
@@ -1148,7 +1204,6 @@ duration = 1.0
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -0.0338761, 1.64708, 0.423259)
 
 [node name="Parent mug to old man hand" parent="Old Man/Receive mug" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
-visible = false
 child = NodePath("../../Mug")
 new_parent = NodePath("../../Model/Armature/Skeleton/RightHandSlot")
 keep_position = false
@@ -1157,23 +1212,181 @@ keep_position = false
 animation_target = NodePath("../../../Player")
 animation_name = "carrying"
 
+[node name="Old man follow up conversation" parent="Old Man/Receive mug" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+conversation_tree = NodePath("../../Conversation follow up")
+
 [node name="Clear self" parent="Old Man/Receive mug" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 nodes_to_clear = [NodePath("..")]
 
 [node name="Mug" type="MeshInstance3D" parent="Old Man"]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_7nka6")
 skeleton = NodePath("")
 
-[editable path="Tavern_00/Clearable table/Interactable"]
-[editable path="Tavern_00/Clearable center rubble/Clear center rubble interactable"]
-[editable path="Tavern_00/Clearable corner rubble/Clear corner rubble interactable"]
-[editable path="Tavern_00/Barrel/Pickup barrel interactable"]
-[editable path="Tavern_00/Place barrel interactable"]
-[editable path="Tavern_00/Place barrel interactable/SM_Prop_Barrel_Dispenser_Small_01"]
+[node name="Conversation follow up" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
+events_before = [NodePath("Camera look at old man"), NodePath("Player motion off")]
+branches = [NodePath("start")]
+events_after = [NodePath("Player motion on"), NodePath("Camera look at nothing"), NodePath("Show letter and receive letter interactable")]
+
+[node name="Camera look at old man" parent="Old Man/Conversation follow up" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
+target = NodePath("../..")
+
+[node name="Player motion off" parent="Old Man/Conversation follow up" instance=ExtResource("62_4ubi3")]
+
+[node name="start" parent="Old Man/Conversation follow up" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Conversation follow up/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("72_e3s4h")
+speeches = Array[String](["Ahhh..."])
+
+[node name="ConversationLeaf2" parent="Old Man/Conversation follow up/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("72_e3s4h")
+speeches = Array[String](["Something magical in that brew... no one makes it like you, Martin."])
+
+[node name="ConversationLeaf3" parent="Old Man/Conversation follow up/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("72_e3s4h")
+speeches = Array[String](["Forgive me... you look so much like your father.", "I knew him almost a decade. He was something special. He saw the best in people. The best in me.", "I'm afraid if you came to find him, you're too late. I buried him myself, five years past... he didn't last long after the attack."])
+
+[node name="ConversationLeaf4" parent="Old Man/Conversation follow up/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("72_e3s4h")
+speeches = Array[String](["He wanted you to have this. I think he knew you'd come looking."])
+
+[node name="Player motion on" parent="Old Man/Conversation follow up" instance=ExtResource("62_4ubi3")]
+motion_active = true
+
+[node name="Camera look at nothing" parent="Old Man/Conversation follow up" instance=ExtResource("61_e7i3n")]
+
+[node name="Show letter and receive letter interactable" parent="Old Man/Conversation follow up" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../Receive letter"): 0,
+NodePath("../../Letter"): 0
+}
+
+[node name="Letter" type="MeshInstance3D" parent="Old Man"]
+transform = Transform3D(1, 0, -1.75373e-08, 0, 1, 0, 1.75373e-08, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_e3s4h")
+skeleton = NodePath("")
+
+[node name="Receive letter" parent="Old Man" instance=ExtResource("52_gbbts")]
+transform = Transform3D(1, 0, -2.23517e-08, 0, 1, 0, 2.23517e-08, 0, 1, 0, 0, 0)
+visible = false
+message = "Take letter"
+duration = 1.0
+
+[node name="CollisionShape3D" parent="Old Man/Receive letter" index="0"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -0.0338761, 1.64708, 0.423259)
+
+[node name="Move letter to player face" parent="Old Man/Receive letter" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+node = NodePath("../../Letter")
+change_position = true
+tween_duration = 0.5
+
+[node name="Show letter sprite" parent="Old Man/Receive letter" instance=ExtResource("73_a3qre")]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
+sprite = ExtResource("74_43vwf")
+delay = 1.0
+
+[node name="Show talk to old man interactable" parent="Old Man/Receive letter" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../Talk to old man"): 0
+}
+
+[node name="Clear self" parent="Old Man/Receive letter" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+nodes_to_clear = [NodePath("..")]
+
+[node name="Talk to old man" parent="Old Man" instance=ExtResource("52_gbbts")]
+transform = Transform3D(1, 0, -2.23517e-08, 0, 1, 0, 2.23517e-08, 0, 1, 0, 0, 0)
+visible = false
+message = "Take letter"
+duration = 1.0
+
+[node name="CollisionShape3D" parent="Old Man/Talk to old man" index="0"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -0.0338761, 1.64708, 0.423259)
+
+[node name="Old man conversation finale" parent="Old Man/Talk to old man" node_paths=PackedStringArray("conversation_tree") instance=ExtResource("53_0jbij")]
+conversation_tree = NodePath("../../Conversation finale")
+
+[node name="Clear self" parent="Old Man/Talk to old man" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+nodes_to_clear = [NodePath("..")]
+
+[node name="Conversation finale" parent="Old Man" node_paths=PackedStringArray("events_before", "branches", "events_after") instance=ExtResource("57_0l7v7")]
+events_before = [NodePath("Camera look at old man"), NodePath("Player motion off")]
+branches = [NodePath("start")]
+events_after = [NodePath("Player motion on"), NodePath("Camera look at nothing")]
+
+[node name="Camera look at old man" parent="Old Man/Conversation finale" node_paths=PackedStringArray("target") instance=ExtResource("61_e7i3n")]
+target = NodePath("../..")
+
+[node name="Player motion off" parent="Old Man/Conversation finale" instance=ExtResource("62_4ubi3")]
+
+[node name="start" parent="Old Man/Conversation finale" instance=ExtResource("55_taapi")]
+
+[node name="ConversationLeaf" parent="Old Man/Conversation finale/start" instance=ExtResource("57_3w4ku")]
+speaker = ExtResource("72_e3s4h")
+speeches = Array[String](["I understand if you want some time.", "There's a cellar in the back. I've got the key...", "Your father kept a bed down there for when we got drop-dead drunk. Maybe you can use it tonight."])
+
+[node name="Player motion on" parent="Old Man/Conversation finale" instance=ExtResource("62_4ubi3")]
+motion_active = true
+
+[node name="Camera look at nothing" parent="Old Man/Conversation finale" instance=ExtResource("61_e7i3n")]
+
+[node name="Key" type="MeshInstance3D" parent="Old Man"]
+transform = Transform3D(1, 0, -3.50746e-08, 0, 1, 0, 3.50746e-08, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_44522")
+skeleton = NodePath("")
+
+[node name="Take key" parent="Old Man" instance=ExtResource("52_gbbts")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+visible = false
+message = "Take key"
+duration = 1.0
+
+[node name="CollisionShape3D" parent="Old Man/Take key" index="0"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -0.0338761, 1.64708, 0.423259)
+
+[node name="Parent key to player hand" parent="Old Man/Take key" node_paths=PackedStringArray("child", "new_parent") instance=ExtResource("55_e7i3n")]
+child = NodePath("../../Key")
+new_parent = NodePath("../../../Player/Model/Armature/Skeleton/RightHandAttachment")
+
+[node name="Move key to player hand" parent="Old Man/Take key" node_paths=PackedStringArray("node") instance=ExtResource("56_4ubi3")]
+node = NodePath("../../Key")
+new_position = Vector3(-0.0910044, -0.0801092, 0.122002)
+change_position = true
+new_rotation = Vector3(1.046, 1.629, 0.971)
+change_rotation = true
+new_scale = Vector3(0.5, 0.5, 0.5)
+change_scale = true
+tween_duration = 0.25
+
+[node name="Show open cellar door interactable" parent="Old Man/Take key" node_paths=PackedStringArray("nodes_to_change_visibility") instance=ExtResource("52_3i17g")]
+nodes_to_change_visibility = {
+NodePath("../../../Tavern_00/Cellar door/Open cellar door"): 0
+}
+
+[node name="Clear self" parent="Old Man/Take key" node_paths=PackedStringArray("nodes_to_clear") instance=ExtResource("53_yq3p1")]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
+nodes_to_clear = [NodePath("..")]
+
+[editable path="Tavern_00/Clearable table/Clear table"]
+[editable path="Tavern_00/Clearable center rubble/Clear center rubble"]
+[editable path="Tavern_00/Clearable corner rubble/Clear corner rubble"]
+[editable path="Tavern_00/Barrel/Pickup barrel"]
+[editable path="Tavern_00/Cellar door/Open cellar door"]
+[editable path="Tavern_00/Place barrel"]
+[editable path="Tavern_00/Place barrel/SM_Prop_Barrel_Dispenser_Small_01"]
 [editable path="Player"]
 [editable path="Old Man"]
 [editable path="Old Man/Model"]
 [editable path="Old Man/Take mug"]
 [editable path="Old Man/Receive mug"]
+[editable path="Old Man/Receive letter"]
+[editable path="Old Man/Talk to old man"]
+[editable path="Old Man/Take key"]

@@ -7,8 +7,13 @@ class_name PlayerMotionActiveEvent
 ## Called when this event should transpire.
 ## Enables or disables player movement.
 func take_effect():
-	if !super():
+	if !can_take_effect():
 		return
 	
-	print("Setting player motion to " + str(motion_active))
-	Globals.get_player().move_disabled = !motion_active
+	queue_effect(set_player_motion, [motion_active])
+
+
+## Sets the player's motion to the given value.
+func set_player_motion(active: bool):
+	print("Setting player motion to " + str(active))
+	Globals.get_player().move_disabled = !active

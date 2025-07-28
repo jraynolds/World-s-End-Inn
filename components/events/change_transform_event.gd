@@ -14,29 +14,44 @@ class_name ChangeTransformEvent
 ## Called when this event should transpire.
 ## Begins the conversation.
 func take_effect():
-	if !super():
+	if !can_take_effect():
 		return
 	
-	assert(node, "No node to change things for!")
-	if tween_duration <= 0:
-		if change_position:
-			print("Instantly changing node " + node.name + "position to " + str(new_position))
-			node.position = new_position
-		if change_rotation:
-			print("Instantly changing node " + node.name + "rotation to " + str(new_rotation))
-			node.rotation = new_rotation
-		if change_scale:
-			print("Instantly changing node " + node.name + "scale to " + str(new_scale))
-			node.scale = new_scale
+	queue_effect(
+		change_transform, 
+		[node, new_position, change_position, new_rotation, change_rotation, new_scale, change_scale, tween_duration]
+	)
+
+## Manipulates the given node's Transform.
+func change_transform(
+	n: Node3D, 
+	new_pos: Vector3, 
+	change_pos: bool, 
+	new_rot: Vector3, 
+	change_rot: bool, 
+	new_s: Vector3, 
+	change_s: bool, 
+	duration: float
+):
+	assert(n, "No node to change things for!")
+	if duration <= 0:
+		if change_pos:
+			print("Instantly changing node " + n.name + "position to " + str(new_pos))
+			n.position = new_pos
+		if change_rot:
+			print("Instantly changing node " + n.name + "rotation to " + str(new_rot))
+			n.rotation = new_rot
+		if change_s:
+			print("Instantly changing node " + n.name + "scale to " + str(new_s))
+			n.scale = new_s
 	else :
 		var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		if change_position:
-			tween.tween_property(node, "position", new_position, tween_duration)
-			print("Slowly changing node " + node.name + "position to " + str(new_position))
-		if change_rotation:
-			tween.tween_property(node, "rotation", new_rotation, tween_duration)
-			print("Slowly changing node " + node.name + "rotation to " + str(new_rotation))
-		if change_scale:
-			tween.tween_property(node, "scale", new_scale, tween_duration)
-			print("Slowly changing node " + node.name + "scale to " + str(new_scale))
-		
+		if change_pos:
+			tween.tween_property(n, "position", new_pos, duration)
+			print("Slowly changing node " + n.name + "position to " + str(new_pos))
+		if change_rot:
+			tween.tween_property(n, "rotation", new_rot, duration)
+			print("Slowly changing node " + n.name + "rotation to " + str(new_rot))
+		if change_s:
+			tween.tween_property(n, "scale", new_s, duration)
+			print("Slowly changing node " + n.name + "scale to " + str(new_s))

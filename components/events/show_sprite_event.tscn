@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://clqa73em5hxoj"]
+
+[ext_resource type="PackedScene" uid="uid://dcv3g7cpqfuen" path="res://components/events/event.tscn" id="1_ln1ht"]
+[ext_resource type="Script" uid="uid://b4q5r7xfb2yj8" path="res://components/events/show_sprite_event.gd" id="2_7khoi"]
+
+[node name="ShowSpriteEvent" instance=ExtResource("1_ln1ht")]
+script = ExtResource("2_7khoi")
+sprite = null

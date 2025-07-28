@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwrum8qrqwggc"]
+
+[ext_resource type="Texture2D" uid="uid://bij665ob4nlm3" path="res://assets/characters/Old man texture.png" id="1_2edsc"]
+[ext_resource type="Script" uid="uid://cpoaa0uyv48n6" path="res://ui/ui_view.gd" id="1_loj3d"]
+
+[node name="UIView" type="Control" node_paths=PackedStringArray("sprite_rect", "close_button")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loj3d")
+sprite_rect = NodePath("Sprite rect")
+close_button = NodePath("Close button")
+
+[node name="Sprite rect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -281.5
+offset_right = 392.0
+offset_bottom = 281.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2edsc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Close button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 24.0
+offset_right = -275.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "X"
+
+[connection signal="pressed" from="Close button" to="." method="_on_close_button_pressed"]

@@ -40,7 +40,7 @@ func add_interactable(inter: Interactable):
 
 ## Remove an Interactable from our available list.
 func erase_interactable(inter: Interactable):
-	assert(inter in interactables, "We've tried to remove an Interactable that's not in our list!")
+	#assert(inter in interactables, "We've tried to remove an Interactable that's not in our list!")
 	interactables.erase(inter)
 	if earliest_interactable == inter:
 		earliest_interactable = interactables[0] if !interactables.is_empty() else null
@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 		progress_bar.value = fill_ratio * 100.0
 		if interaction_timer_left < 0:
 			active_interactable.interacted()
+			erase_interactable(active_interactable)
 
 
 ## Called whenever an input is read. Processes interaction events.

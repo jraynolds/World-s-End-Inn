@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 Interaction="*res://ui/interaction.tscn"
 Dialogue="*res://ui/dialogue.tscn"
-Globals="*res://globals.gd"
+UIView="*res://ui/UIView.tscn"
+Globals="*res://globals.tscn"
 
 [editor_plugins]
 

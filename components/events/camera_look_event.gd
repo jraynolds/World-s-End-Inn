@@ -7,8 +7,13 @@ class_name CameraLookEvent
 ## Called when this event should transpire.
 ## Sets the camera look target to the target.
 func take_effect():
-	if !super():
+	if !can_take_effect():
 		return
 	
-	print("Making player camera look at target " + (target.name if target else "none"))
-	Globals.get_player().look_at_target = target
+	queue_effect(camera_look, [target])
+
+
+## Makes the camera look at the given target.
+func camera_look(look_target: Node3D):
+	print("Making player camera look at target " + (look_target.name if look_target else "none"))
+	Globals.get_player().look_at_target = look_target
