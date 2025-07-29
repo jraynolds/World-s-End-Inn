@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://p4foqw4l58ri"]
+
+[ext_resource type="ArrayMesh" uid="uid://boe8hhnnrlrea" path="res://Assets/PolygonFantasyKingdom/Models/extracted/SM_Prop_Plank_01.SM_Prop_Plank_01.mesh" id="1_243qw"]
+[ext_resource type="Material" uid="uid://kdy80q0gqq8l" path="res://Assets/PolygonFantasyKingdom/Materials/PolygonFantasyKingdom_Mat_01_A.material" id="2_rmw6v"]
+[ext_resource type="ArrayMesh" uid="uid://cbbr6i4ecl3ca" path="res://Assets/PolygonFantasyKingdom/Models/extracted/SM_Prop_Plank_02.SM_Prop_Plank_02.mesh" id="3_xaxd5"]
+[ext_resource type="ArrayMesh" uid="uid://b80d3d004r67t" path="res://Assets/PolygonFantasyKingdom/Models/extracted/SM_Prop_Plank_03.SM_Prop_Plank_03.mesh" id="4_hu58t"]
+[ext_resource type="ArrayMesh" uid="uid://bi3wpd2kxwdbl" path="res://Assets/PolygonFantasyKingdom/Models/extracted/SM_Bld_House_WoodBeam_01.SM_Bld_House_WoodBeam_01.mesh" id="5_efurj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhplb"]
+size = Vector3(5.0052, 2.42926, 1.15436)
+
+[node name="StorageRack" type="RigidBody3D"]
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="SM_Prop_Plank_01" type="Node3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.06849, 2.00071, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Prop_Plank_01"]
+gi_mode = 2
+mesh = ExtResource("1_243qw")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Prop_Plank_02" type="Node3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.03446, 1.99709, 0.401173)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Prop_Plank_02"]
+gi_mode = 2
+mesh = ExtResource("3_xaxd5")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Prop_Plank_04" type="Node3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.03446, 0.520951, 0.401173)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Prop_Plank_04"]
+gi_mode = 2
+mesh = ExtResource("3_xaxd5")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Prop_Plank_03" type="Node3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.10996, 0.498643, 0.00538397)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Prop_Plank_03"]
+gi_mode = 2
+mesh = ExtResource("4_hu58t")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_01" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.518121, 0, 0, 0, 1, 0, 0, 0, 0.509316, -1.65993, 0, -0.281898)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_01"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_02" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.518121, 0, 0, 0, 1, 0, 0, 0, 0.509316, -1.65993, 0, 0.676172)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_02"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_03" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.407825, 0, 0, 0, -1.63041e-08, 0.372627, 0, -0.372993, -1.6288e-08, -1.65993, 1.91248, 0.673228)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_03"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_04" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.407825, 0, 0, 0, -1.63041e-08, 0.372627, 0, -0.372993, -1.6288e-08, -1.65993, 0.424536, 0.673228)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_04"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_05" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.518121, 0, 0, 0, 1, 0, 0, 0, 0.509316, 2.62483, 0, -0.281898)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_05"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_06" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.518121, 0, 0, 0, 1, 0, 0, 0, 0.509316, 2.62483, 0, 0.676172)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_06"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_07" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.407825, 0, 0, 0, -1.63041e-08, 0.372627, 0, -0.372993, -1.6288e-08, 2.62483, 1.91248, 0.673228)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_07"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="SM_Bld_House_WoodBeam_08" type="Node3D" parent="Meshes"]
+transform = Transform3D(0.407825, 0, 0, 0, -1.63041e-08, 0.372627, 0, -0.372993, -1.6288e-08, 2.62483, 0.424536, 0.673228)
+metadata/_edit_group_ = true
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Meshes/SM_Bld_House_WoodBeam_08"]
+gi_mode = 2
+mesh = ExtResource("5_efurj")
+surface_material_override/0 = ExtResource("2_rmw6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449272, 1.21518, 0.186654)
+shape = SubResource("BoxShape3D_qhplb")

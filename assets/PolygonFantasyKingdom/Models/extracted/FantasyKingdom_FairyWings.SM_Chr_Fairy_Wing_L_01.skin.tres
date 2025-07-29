@@ -1,0 +1,14 @@
+[gd_resource type="Skin" format=3 uid="uid://ddjubjl01bxk6"]
+
+[resource]
+resource_name = "Skin"
+bind_count = 3
+bind/0/name = &"Fairy_Wing_Rig"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/1/name = &"Fairy_Wing_Base_R"
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145139, 0.0623178, 0.0739361)
+bind/2/name = &"Fairy_Wing_Base_L"
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 0, 0, 0, -1, -1.22465e-16, 0, 1.22465e-16, -1, 0.0145139, -0.0623178, -0.0739361)

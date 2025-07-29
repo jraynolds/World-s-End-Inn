@@ -1,0 +1,11 @@
+[gd_resource type="Skin" format=3 uid="uid://utv1tc3adfa2"]
+
+[resource]
+resource_name = "Skin"
+bind_count = 2
+bind/0/name = &"Wep_Rammer_Rigged_01"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/1/name = &"SM_Wep_Rammer_Ridded_01"
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4937, 0)

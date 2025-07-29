@@ -24,7 +24,7 @@ Globals="*res://globals.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mixamo_animation_retargeter/plugin.cfg")
+enabled=PackedStringArray("res://addons/mixamo_animation_retargeter/plugin.cfg", "res://addons/unidot_importer/plugin.cfg")
 
 [global_group]
 
